@@ -96,56 +96,59 @@ button{font:inherit;cursor:pointer}
 <div class="topitem">🔒 <div><b>COMPRA SEGURA</b><span>Seus dados protegidos</span></div></div>
 <div class="topitem">▣ <div><b>ATENDIMENTO</b><span>100% Online 👨🏻‍💻</span></div></div>
 <div class="topitem">🛒 <b id="topCart">0</b></div>
-</div>
+ </div>
 <nav class="nav">
 <button class="menu" onclick="alert('Menu aberto')">☰</button>
-<span>CM</span>
+<span>C🏛️M</span>
 <img class="logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
-<div class="links">
-<a class="active" href="#inicio">| INÍCIO |</a>
-<a href="#produtos">PRODUTOS |</a>
-<a href="#categorias">CATÁLOGO |</a>
-<a href="#sobre">SOBRE NÓS |</a>
-<a href="#contato">CONTATO |</a>
-</div>
+ <div class="links">
+<a class="active" href="#inicio">|INÍCIO|</a>
+<a href="#produtos">PRODUTOS|</a>
+<a href="#categorias">CATÁLOGO|</a>
+<a href="#sobre">SOBRE NÓS|</a>
+<a href="#contato">CONTATO|</a>
+ </div>
 <div class="search">
 <input id="search" placeholder="Buscar produtos..." oninput="filterProducts()">
 <button onclick="filterProducts()">⌕</button>
-</div>
-</nav>
+ </div>
+ </nav>
 <section class="hero" id="inicio">
 <div class="hero-content">
 <img class="hero-logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
 <div class="kicker">ESTILO, QUALIDADE E CONFIANÇA EM CADA DETALHE.</div>
 <h1>Preço</h1>
 <button class="btn" onclick="document.querySelector('#produtos').scrollIntoView()">VER COLEÇÃO →</button>
-</div>
+ </div>
 </section>
 <section class="categories" id="categorias">
 <div class="cat" onclick="chooseCat('Camisetas')">
 <div class="ico">👕</div><b>CAMISETAS</b><small>VER MAIS →</small>
-</div>
+ </div>
+<div class="cat" onclick="chooseCat('Shorts')">
+<div class="ico">🩳</div><b>SHORTS</b><small>VER MAIS →</small>
+  </div>
 <div class="cat" onclick="chooseCat('Polos')">
 <div class="ico">◫</div><b>POLOS</b><small>VER MAIS →</small>
-</div>
+ </div>
 <div class="cat" onclick="chooseCat('Moletons')">
 <div class="ico">🧥</div><b>MOLETONS</b><small>VER MAIS →</small>
-</div>
+ </div>
 <div class="cat" onclick="chooseCat('Calças')">
 <div class="ico">👖</div><b>CALÇAS</b><small>VER MAIS →</small>
-</div>
+ </div>
 <div class="cat" onclick="chooseCat('Tênis')">
 <div class="ico">👟</div><b>TÊNIS</b><small>VER MAIS →</small>
-</div>
+ </div>
 <div class="cat" onclick="chooseCat('Acessórios')">
 <div class="ico">⌚</div><b>ACESSÓRIOS</b><small>VER MAIS →</small>
-</div>
+ </div>
 </section>
 <section class="section" id="produtos">
 <div class="section-head">
 <h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
 <button class="btn" style="padding:8px 12px" onclick="showAll()">VER TODOS →</button>
-</div>
+ </div>
 <div class="products" id="productGrid"></div>
 </section>
 <section class="life" id="sobre">
@@ -171,7 +174,7 @@ conforto e autenticidade.
 <div>
 <h4>CONTATO</h4>
 <a href="https://wa.me/5585988485980" target="_blank">WhatsApp: (85) 98848-5980</a>
-<a href="https://instagram.com/casamasculiina" target="_blank">Instagram: @casamasculiina</a>
+<a href="https://instagram.com/casamasculiina" target="_blank">Instagram: casamasculiina</a>
 </div>
 <div>
 <h4>CASA MASCULINA</h4>
@@ -194,8 +197,15 @@ const products = [
 'Shorts',
 './IMG-20260928-WA0002.jpg'
 ],
+  [
+'Camisa',
+'100% Algodão',
+'R$ 49,99',
+'Camisetas',
+'👕'
+],
 [
-'Camiseta Mr2',
+'Camisa Mr2',
 '100% Algodão',
 'R$ 39,99',
 'Camisetas',
