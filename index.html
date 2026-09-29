@@ -1,29 +1,311 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=4.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Masculina 🏛️ | Since 2025</title>
+
 <style>
-:root{--bg:#03080e;--panel:#071019;--line:#2b3540;--text:#f5f5f3;--muted:#aeb4bb}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text)}a{color:inherit;text-decoration:none}button{font:inherit}.topbar{display:flex;justify-content:space-around;gap:20px;padding:10px 4%;border-bottom:1px solid var(--line);font:11px Arial,sans-serif}.topitem{display:flex;align-items:center;gap:9px;color:#ddd}.topitem span{display:block;color:#89929b;font-size:9px}.nav{height:82px;display:flex;align-items:center;gap:25px;padding:0 4%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(3,8,14,.96);backdrop-filter:blur(10px);z-index:20}.menu{font-size:27px;background:none;border:0;color:#fff;cursor:pointer}.logo{height:50px;width:150px;object-fit:contain;border-radius:8px}.links{display:flex;gap:30px;margin:auto;font-size:13px;letter-spacing:2px}.links a{padding:31px 0;border-bottom:1px solid transparent}.links a:hover,.links a.active{border-color:#fff}.search{display:flex;border:1px solid #56606a;border-radius:10px;overflow:hidden;width:300px}.search input{background:none;border:0;color:#fff;padding:12px 14px;width:100%;outline:0;font-family:Arial}.search button{background:none;border:0;color:#fff;padding:0 14px;cursor:pointer}.hero{min-height:390px;display:flex;align-items:center;padding:0 8%;background:linear-gradient(90deg,rgba(3,8,14,.99) 0%,rgba(3,8,14,.88) 36%,rgba(3,8,14,.12) 78%),url('casa_masculina_hero.jpg') center/cover no-repeat;border-bottom:1px solid var(--line)}.hero-content{max-width:570px}.hero-logo{width:330px;max-width:80%;margin-bottom:15px}.kicker{letter-spacing:6px;font-size:15px;line-height:1.8}.hero h1{font-size:29px;letter-spacing:5px;font-weight:400;line-height:1.45;margin:8px 0 22px}.btn{display:inline-flex;align-items:center;gap:17px;border:1px solid #c9cdd1;background:transparent;color:#fff;padding:13px 22px;cursor:pointer;letter-spacing:2px;font-size:11px;transition:.25s}.btn:hover{background:#fff;color:#03080e}.categories{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}.cat{padding:21px 12px;text-align:center;border-right:1px solid #1c252e;cursor:pointer;transition:.2s}.cat:hover{background:#0b131c}.cat .ico{font-size:27px;margin-bottom:8px}.cat b{font-size:12px;letter-spacing:1px;font-weight:400}.cat small{display:block;color:#aaa;margin-top:6px;font:10px Arial}.section{padding:38px 4%}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.section-title{letter-spacing:4px;font-size:18px;font-weight:400}.products{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.card{background:#050c13;border:1px solid #27323d;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-4px);border-color:#7b858e}.pic{height:190px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#1d252c,#070d13 70%);position:relative}.pic span{font-size:68px;opacity:.88}.badge{position:absolute;left:10px;top:10px;border:1px solid #ddd;padding:3px 6px;font:9px Arial;letter-spacing:1px}.info{padding:13px;font-family:Arial,sans-serif}.info h3{font:14px Georgia,serif;margin-bottom:7px}.info p{font-size:10px;color:#aeb4bb;margin-bottom:8px}.price{font-weight:700;margin-bottom:12px}.buy{width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #59636e;cursor:pointer;font-size:10px;letter-spacing:1px}.buy:hover{background:#fff;color:#000}.life{min-height:170px;padding:35px 7%;display:flex;align-items:center;justify-content:center;gap:50px;background:linear-gradient(90deg,#0b1117,#03080e);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}.life h2{letter-spacing:5px;font-weight:400;font-size:22px;max-width:350px}.life p{font:12px Arial,sans-serif;color:#b7bdc4;max-width:390px;line-height:1.7}.footer{padding:35px 7%;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;font-family:Arial,sans-serif;color:#bfc4ca}.footer img{width:180px;height:75px;object-fit:contain;border-radius:6px}.footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:14px;letter-spacing:2px}.footer a{display:block;font-size:12px;margin:8px 0}.copyright{grid-column:1/-1;text-align:center;border-top:1px solid #202a34;padding-top:20px;font-size:10px}.cart{position:fixed;right:18px;bottom:18px;background:#fff;color:#000;border:0;border-radius:50%;width:56px;height:56px;font-size:20px;cursor:pointer;z-index:30}.toast{position:fixed;bottom:88px;right:18px;background:#fff;color:#000;padding:12px 18px;border-radius:8px;font:12px Arial;display:none;z-index:31}
-.pic img{
-  width:70%;
-  height:auto;
-  object-fit:contain;
-  display:block;
-  margin:auto; }
-  @media(max-width:1000px){.links{gap:12px}.products{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.search{width:200px}}@media(max-width:700px){.topbar{display:none}.nav{height:68px;padding:0 15px;gap:12px}.logo{width:145px;height:58px}.links{display:none}.search{margin-left:auto;width:45px;border:0}.search input{display:none}.search button{padding:8px}.hero{min-height:500px;padding:40px 22px;align-items:end;background-position:62% center}.hero h1{font-size:21px;letter-spacing:3px}.kicker{font-size:12px;letter-spacing:3px}.hero-logo{width:270px}.products{grid-template-columns:repeat(2,1fr);gap:9px}.pic{height:160px}.categories{grid-template-columns:repeat(2,1fr)}.life{display:block;padding:35px 20px}.life p{margin:20px auto}.footer{grid-template-columns 1fr;padding:30px 20px}
-</style></head>
+:root{--bg:#03080e;--panel:#071019;--line:#2b3540;--text:#f5f5f3;--muted:#aeb4bb}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.topbar{display:flex;justify-content:space-around;gap:20px;padding:10px 4%;border-bottom:1px solid var(--line);font:11px Arial,sans-serif}
+.topitem{display:flex;align-items:center;gap:9px;color:#ddd}
+.topitem span{display:block;color:#89929b;font-size:9px}
+.nav{height:82px;display:flex;align-items:center;gap:25px;padding:0 4%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(3,8,14,.96);backdrop-filter:blur(10px);z-index:20}
+.menu{font-size:27px;background:none;border:0;color:#fff}
+.logo{height:50px;width:150px;object-fit:contain;border-radius:8px}
+.links{display:flex;gap:30px;margin:auto;font-size:13px;letter-spacing:2px}
+.links a{padding:31px 0;border-bottom:1px solid transparent}
+.links a:hover,.links a.active{border-color:#fff}
+.search{display:flex;border:1px solid #56606a;border-radius:10px;overflow:hidden;width:300px}
+.search input{background:none;border:0;color:#fff;padding:12px 14px;width:100%;outline:0;font-family:Arial}
+.search button{background:none;border:0;color:#fff;padding:0 14px}
+.hero{min-height:390px;display:flex;align-items:center;padding:0 8%;background:linear-gradient(90deg,rgba(3,8,14,.99) 0%,rgba(3,8,14,.88) 36%,rgba(3,8,14,.12) 78%),url('casa_masculina_hero.jpg') center/cover no-repeat;border-bottom:1px solid var(--line)}
+.hero-content{max-width:570px}
+.hero-logo{width:330px;max-width:80%;margin-bottom:15px}
+.kicker{letter-spacing:6px;font-size:15px;line-height:1.8}
+.hero h1{font-size:29px;letter-spacing:5px;font-weight:400;line-height:1.45;margin:8px 0 22px}
+.btn{display:inline-flex;align-items:center;gap:17px;border:1px solid #c9cdd1;background:transparent;color:#fff;padding:13px 22px;letter-spacing:2px;font-size:11px;transition:.25s}
+.btn:hover{background:#fff;color:#03080e}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
+.cat{padding:21px 12px;text-align:center;border-right:1px solid #1c252e;transition:.2s}
+.cat:hover{background:#0b131c}
+.cat .ico{font-size:27px;margin-bottom:8px}
+.cat b{font-size:12px;letter-spacing:1px;font-weight:400}
+.cat small{display:block;color:#aaa;margin-top:6px;font:10px Arial}
+.section{padding:38px 4%}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.section-title{letter-spacing:4px;font-size:18px;font-weight:400}
+.products{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.card{background:#050c13;border:1px solid #27323d;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:#7b858e}
+.pic{height:190px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#1d252c,#070d13 70%);position:relative}
+.pic img{width:55%;height:55%;object-fit:contain;display:block}
+.pic span{font-size:68px;opacity:.88}
+.badge{position:absolute;left:10px;top:10px;border:1px solid #ddd;padding:3px 6px;font:9px Arial;letter-spacing:1px}
+.info{padding:13px;font-family:Arial,sans-serif}
+.info h3{font:14px Georgia,serif;margin-bottom:7px}
+.info p{font-size:10px;color:#aeb4bb;margin-bottom:8px}
+.price{font-weight:700;margin-bottom:12px}
+.buy{width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #59636e;font-size:10px;letter-spacing:1px}
+.buy:hover{background:#fff;color:#000}
+.life{min-height:170px;padding:35px 7%;display:flex;align-items:center;justify-content:center;gap:50px;background:linear-gradient(90deg,#0b1117,#03080e);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.life h2{letter-spacing:5px;font-weight:400;font-size:22px;max-width:350px}
+.life p{font:12px Arial,sans-serif;color:#b7bdc4;max-width:390px;line-height:1.7}
+.footer{padding:35px 7%;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;font-family:Arial,sans-serif;color:#bfc4ca}
+.footer img{width:180px;height:75px;object-fit:contain;border-radius:6px}
+.footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:14px;letter-spacing:2px}
+.footer a{display:block;font-size:12px;margin:8px 0}
+.copyright{grid-column:1/-1;text-align:center;border-top:1px solid #202a34;padding-top:20px;font-size:10px}
+.cart{position:fixed;right:18px;bottom:18px;background:#fff;color:#000;border:0;border-radius:50%;width:56px;height:56px;font-size:20px;z-index:30}
+.toast{position:fixed;bottom:88px;right:18px;background:#fff;color:#000;padding:12px 18px;border-radius:8px;font:12px Arial;display:none;z-index:31}
+@media(max-width:1000px){
+.links{gap:12px}
+.products{grid-template-columns:repeat(3,1fr)}
+.categories{grid-template-columns:repeat(3,1fr)}
+.search{width:200px}
+}
+@media(max-width:700px){
+.topbar{display:none}
+.nav{height:68px;padding:0 15px;gap:12px}
+.logo{width:145px;height:58px}
+.links{display:none}
+.search{margin-left:auto;width:45px;border:0}
+.search input{display:none}
+.search button{padding:8px}
+.hero{min-height:500px;padding:40px 22px;align-items:end;background-position:62% center}
+.hero h1{font-size:21px;letter-spacing:3px}
+.kicker{font-size:12px;letter-spacing:3px}
+.hero-logo{width:270px}
+.products{grid-template-columns:repeat(2,1fr);gap:9px}
+.pic{height:160px}
+.categories{grid-template-columns:repeat(2,1fr)}
+.life{display:block;padding:35px 20px}
+.life p{margin:20px auto}
+.footer{grid-template-columns:1fr;padding:30px 20px}
+}
+</style>
+</head>
 <body>
-<div class="topbar"><div class="topitem">🛵 <div><b>ENVIO RÁPIDO</b><span>Para todo o Brasil</span></div></div><div class="topitem">🔒 <div><b>COMPRA SEGURA</b><span>Seus dados protegidos</span></div></div><div class="topitem">▣ <div><b>Atendimento </b><span>100% Online 👨🏻‍💻</span></div></div><div class="topitem">◎ &nbsp; ◉ sp; 🛒 <b id="topCart">0</b></div></div>
-<nav class="nav"><button class="menu" onclick="alert('Menu aberto')">☰ </button>CM<img class="logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina"><div class="links"><a class="active" href="#inicio">|INÍCIO|</a><a href="#produtos">PRODUTOS|</a><a href="#categorias">Catalogo|</a><a href="#sobre">SOBRE NÓS|</a><a href="#contato">CONTATO|</a></div><div class="search"><input id="search" placeholder="Buscar produtos..." oninput="filterProducts()"><button onclick="filterProducts()">⌕</button></div></nav>
-<section class="hero" idinicio"><div class="heálogo content"><img class="hero-logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina"><div class="kicker">ESTILO, QUALIDADE E CONFIANÇA EM CADA DETALHE.</div><h1>Preco</h1><button class="btn" onclick="document.querySelector('#produtos').scrollIntoView()">VER COLEÇÃO →</button></div></section>
-<section class="categories" id="categorias"><div class="cat" onclick="chooseCat('Camisetas')"><div class="ico">👕</div><b>CAMISETAS</b><small>VER MAIS →</small></div><div class="cat" onclick="chooseCat('Polos')"><div class="ico">◫</div><b>POLOS</b><small>VER MAIS →</small></div><div class="cat" onclick="chooseCat('Moletons')"><div class="ico">🧥</div><b>MOLETONS</b><small>VER MAIS →</small></div><div class="cat" onclick="chooseCat('Calças')"><div class="ico">👖</div><b>CALÇAS</b><small>VER MAIS →</small></div><div class="cat" onclick="chooseCat('Tênis')"><div class="ico">👟</div><b>TÊNIS</b><small>VER MAIS →</small></div><div class="cat" onclick="chooseCat('Acessórios')"><div class="ico">⌚</div><b>ACESSÓRIOS</b><small>VER MAIS →</small></div></section>
-<section class="section" id="produtos"><div class="section-head"><h2 class="section-title">PRODUTOS EM DESTAQUE</h2><button class="btn" style="padding:8px 12px" onclick="showAll()">VER TODOS →</button></div><div class="products" id="productGrid"></div></section>
-<section class="life" id="sobre"><h2>Preco Baixo Qualidade acima..</h2><p>Na Casa Masculina, você encontra peças selecionadas para o homem moderno, que valoriza qualidade, conforto e autenticidade.</p><a class="btn" href="#contato">CONHEÇA NOSSA LOJA →</a></section>
-<footer class="footer" id="contato"><div><img src="casa_masculina_logo.png" alt="Casa Masculina"></div><div><h4>Informações</h4><a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#categorias">|Categorias|</a><a href="#sobre">Sobre Nós| </a></div><div><h4>CONTATO|</h4><a href="https://wa.me/5585988485980" target="_blank">WhatsApp: (85) 98848-5980</a><a href="https://instagram.com/casamasculiina" target="_blank">Instagram: @casamasculiina</a></div><div><h4>CASA MASCULINA</h4><a>Since 2025</a><a>Atendimento online</a><a>Compra segura</a></div><div class="copyright">© 2025 Casa Masculina. Todos os direitos reservados.</div></footer>
-<button class="cart" onclick="showCart()">🛒</button><div class="toast" id="toast"></div>
+<div class="topbar">
+<div class="topitem">🛵 <div><b>ENVIO RÁPIDO</b><span>Para todo o Brasil</span></div></div>
+<div class="topitem">🔒 <div><b>COMPRA SEGURA</b><span>Seus dados protegidos</span></div></div>
+<div class="topitem">▣ <div><b>ATENDIMENTO</b><span>100% Online 👨🏻‍💻</span></div></div>
+<div class="topitem">🛒 <b id="topCart">0</b></div>
+</div>
+<nav class="nav">
+<button class="menu" onclick="alert('Menu aberto')">☰</button>
+<span>CM</span>
+<img class="logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
+<div class="links">
+<a class="active" href="#inicio">| INÍCIO |</a>
+<a href="#produtos">PRODUTOS |</a>
+<a href="#categorias">CATÁLOGO |</a>
+<a href="#sobre">SOBRE NÓS |</a>
+<a href="#contato">CONTATO |</a>
+</div>
+<div class="search">
+<input id="search" placeholder="Buscar produtos..." oninput="filterProducts()">
+<button onclick="filterProducts()">⌕</button>
+</div>
+</nav>
+<section class="hero" id="inicio">
+<div class="hero-content">
+<img class="hero-logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
+<div class="kicker">ESTILO, QUALIDADE E CONFIANÇA EM CADA DETALHE.</div>
+<h1>Preço</h1>
+<button class="btn" onclick="document.querySelector('#produtos').scrollIntoView()">VER COLEÇÃO →</button>
+</div>
+</section>
+<section class="categories" id="categorias">
+<div class="cat" onclick="chooseCat('Camisetas')">
+<div class="ico">👕</div><b>CAMISETAS</b><small>VER MAIS →</small>
+</div>
+<div class="cat" onclick="chooseCat('Polos')">
+<div class="ico">◫</div><b>POLOS</b><small>VER MAIS →</small>
+</div>
+<div class="cat" onclick="chooseCat('Moletons')">
+<div class="ico">🧥</div><b>MOLETONS</b><small>VER MAIS →</small>
+</div>
+<div class="cat" onclick="chooseCat('Calças')">
+<div class="ico">👖</div><b>CALÇAS</b><small>VER MAIS →</small>
+</div>
+<div class="cat" onclick="chooseCat('Tênis')">
+<div class="ico">👟</div><b>TÊNIS</b><small>VER MAIS →</small>
+</div>
+<div class="cat" onclick="chooseCat('Acessórios')">
+<div class="ico">⌚</div><b>ACESSÓRIOS</b><small>VER MAIS →</small>
+</div>
+</section>
+<section class="section" id="produtos">
+<div class="section-head">
+<h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
+<button class="btn" style="padding:8px 12px" onclick="showAll()">VER TODOS →</button>
+</div>
+<div class="products" id="productGrid"></div>
+</section>
+<section class="life" id="sobre">
+<h2>Preço Baixo<br>Qualidade acima..</h2>
+<p>
+Na Casa Masculina, você encontra peças selecionadas
+para o homem moderno, que valoriza qualidade,
+conforto e autenticidade.
+</p>
+<a class="btn" href="#contato">CONHEÇA NOSSA LOJA →</a>
+</section>
+<footer class="footer" id="contato">
+<div>
+<img src="casa_masculina_logo.png" alt="Casa Masculina">
+</div>
+<div>
+<h4>INFORMAÇÕES</h4>
+<a href="#inicio">Início</a>
+<a href="#produtos">Produtos</a>
+<a href="#categorias">Categorias</a>
+<a href="#sobre">Sobre Nós</a>
+</div>
+<div>
+<h4>CONTATO</h4>
+<a href="https://wa.me/5585988485980" target="_blank">WhatsApp: (85) 98848-5980</a>
+<a href="https://instagram.com/casamasculiina" target="_blank">Instagram: @casamasculiina</a>
+</div>
+<div>
+<h4>CASA MASCULINA</h4>
+<a>Since 2025</a>
+<a>Atendimento online</a>
+<a>Compra segura</a>
+</div>
+<div class="copyright">
+© 2025 Casa Masculina. Todos os direitos reservados.
+</div>
+</footer>
+<button class="cart" onclick="showCart()">🛒</button>
+<div class="toast" id="toast"></div>
 <script>
-const products=[['Short Mr2','Shorts','R$ 29,99','./IMG-20260928-WA0002.jpg'],['Camiseta Mr2','100% Algodão','R$ 39,99','Camisetas','👕'],['Polo Mr2','Algodão 100%','R$ 129,99','Polos','👔'],['Moletom NIKE','Capuz e Bolso Canguru','R$ 119,99','Moletons','🧥'],['Calça Jeans','Conforto e Elegância','R$ 104,99','Calças','👖'],['Tênis NIKE','Estilo e Versatilidade','R$ 104,90','Tênis','👟'],['Boné Casual','Ajuste Perfeito','R$ 59,90','Acessórios','🧢'],['Relogio Casual', 'Estilo e qualidade','R$ 114,99','Acessorios','⌚']];let cart=0;
-function render(list=products){document.getElementById('productGrid').innerHTML=list.map(p=>`<article class="card"><div class="pic"><img src="${p[3]}" alt="${p[0]}"></div><div class="badge">NOVO</div></div><div class="info"><h3>${p[0]}</h3><p>${p[1]}</p><div class="price">${p[2]}</div><button class="buy" onclick="addCart('${p[0]}')">🛒 COMPRAR</button></div></article>`).join('')}
-function addCart(name){cart++;document.getElementById('topCart').textContent=cart;toast(name+' adicionado ao carrinho.')};function showCart(){toast(cart?`Você tem ${cart} item(ns) no carrinho.`:'Seu carrinho está vazio.')};function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(()=>t.style.display='none',2200)};function filterProducts(){const q=document.getElementById('search').value.toLowerCase();render(products.filter(p=>p.join(' ').toLowerCase().includes(q)))};function chooseCat(cat){document.getElementById('search').value=cat;filterProducts();document.querySelector('#produtos').scrollIntoView()};function showAll(){document.getElementById('search').value='';render()};render();
-</script></body></html>
+const products = [
+[
+'Short Mr2',
+'Shorts',
+'R$ 29,99',
+'Shorts',
+'./IMG-20260928-WA0002.jpg'
+],
+[
+'Camiseta Mr2',
+'100% Algodão',
+'R$ 39,99',
+'Camisetas',
+'👕'
+],
+[
+'Polo Mr2',
+'Algodão 100%',
+'R$ 129,99',
+'Polos',
+'👔'
+],
+[
+'Moletom NIKE',
+'Capuz e Bolso Canguru',
+'R$ 119,99',
+'Moletons',
+'🧥'
+],
+[
+'Calça Jeans',
+'Conforto e Elegância',
+'R$ 104,99',
+'Calças',
+'👖'
+],
+[
+'Tênis NIKE',
+'Estilo e Versatilidade',
+'R$ 104,90',
+'Tênis',
+'👟'
+],
+[
+'Boné Casual',
+'Ajuste Perfeito',
+'R$ 59,90',
+'Acessórios',
+'🧢'
+],
+[
+'Relógio Casual',
+'Estilo e qualidade',
+'R$ 114,99',
+'Acessórios',
+'⌚'
+]
+];
+let cart=0;
+function render(list=products){
+document.getElementById('productGrid').innerHTML=list.map(p=>{
+const visual=p[4].includes('.')
+?`<img src="${p[4]}" alt="${p[0]}">`
+:`<span>${p[4]}</span>`;
+return `
+<article class="card">
+<div class="pic">
+${visual}
+<div class="badge">NOVO</div>
+</div>
+<div class="info">
+<h3>${p[0]}</h3>
+<p>${p[1]}</p>
+<div class="price">${p[2]}</div>
+<button class="buy" onclick="addCart('${p[0]}')">
+🛒 COMPRAR
+</button>
+</div>
+</article>
+`;
+}).join('');
+}
+function addCart(name){
+cart++;
+document.getElementById('topCart').textContent=cart;
+toast(name+' adicionado ao carrinho.');
+}
+function showCart(){
+toast(
+cart
+?`Você tem ${cart} item(ns) no carrinho.`
+:'Seu carrinho está vazio.'
+);
+}
+function toast(msg){
+const t=document.getElementById('toast');
+t.textContent=msg;
+t.style.display='block';
+setTimeout(()=>{
+t.style.display='none';
+},2200);
+}
+function filterProducts(){
+const q=document.getElementById('search').value.toLowerCase();
+render(
+products.filter(p=>
+p.join(' ').toLowerCase().includes(q)
+)
+);
+}
+function chooseCat(cat){
+document.getElementById('search').value=cat;
+filterProducts();
+document.querySelector('#produtos').scrollIntoView();
+}
+function showAll(){
+document.getElementById('search').value='';
+render();
+}
+render();
+</script>
+</body>
+</html>
