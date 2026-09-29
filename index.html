@@ -44,7 +44,7 @@ button{font:inherit;cursor:pointer}
 .card{background:#050c13;border:1px solid #27323d;overflow:hidden;transition:.25s}
 .card:hover{transform:translateY(-4px);border-color:#7b858e}
 .pic{height:190px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#1d252c,#070d13 70%);position:relative}
-.pic img{width:55%;height:55%;object-fit:contain;display:block}
+.pic img{width:70%;height:70%;object-fit:contain;display:block}
 .pic span{font-size:68px;opacity:.88}
 .badge{position:absolute;left:10px;top:10px;border:1px solid #ddd;padding:3px 6px;font:9px Arial;letter-spacing:1px}
 .info{padding:13px;font-family:Arial,sans-serif}
@@ -122,6 +122,9 @@ button{font:inherit;cursor:pointer}
  </div>
 </section>
 <section class="categories" id="categorias">
+ <div class="cat" onclick="chooseCat('Cordao')">
+<div class="ico">🧣</div><b>CORDÃO</b><small>VER MAIS →</small>
+ </div>
 <div class="cat" onclick="chooseCat('Camisetas')">
 <div class="ico">👕</div><b>CAMISETAS</b><small>VER MAIS →</small>
  </div>
@@ -192,7 +195,7 @@ conforto e autenticidade.
 const products = [
 [
 'Short Mr2',
-'Shorts',
+'Conforto & Estilo',
 'R$ 29,99',
 'Shorts',
 './IMG-20260928-WA0002.jpg'
@@ -205,11 +208,11 @@ const products = [
 'a1191bbca3554a86b6d37c66c9c79a85.jpg'
 ],
 [
-'Camisa Mr2',
+'Camisa Lacoste Azul',
 '100% Algodão',
-'R$ 39,99',
+'R$ 59,99',
 'Camisetas',
-'👕'
+'35475abc24772d333ee1e5c0dec8d1ff.jpg'
 ],
 [
 'Polo Mr2',
@@ -252,6 +255,13 @@ const products = [
 'R$ 114,99',
 'Acessórios',
 '⌚'
+],
+[
+'Cordao Cravejado Jesus Cristo',
+'Estilo e conforto',
+'R$ 119,99',
+'Cordão',
+'4f8e444a29496016b809958b62b5326d.jpg'
 ]
 ];
 let cart=0;
