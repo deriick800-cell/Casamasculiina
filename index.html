@@ -4,419 +4,445 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Masculina 🏛️ | Since 2025</title>
-
 <style>
- .mascote{
-  position:fixed;
-  top:75px;
-  right:12px;
-  width:75px;
-  z-index:9999;
-  pointer-events:none;
+:root{
+  --bg:#03080e;
+  --panel:#071019;
+  --panel2:#0b151f;
+  --line:#2b3540;
+  --text:#f5f5f3;
+  --muted:#aeb4bb;
+  --gold:#d7b56d;
+  --gold2:#f0d898;
+  --green:#25d366;
+  --danger:#ff5555;
 }
-.mascote img{
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+button,
+input{
+  font-family:inherit;
+}
+button{
+  cursor:pointer;
+}
+/* ================= HEADER ================= */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(3,8,14,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  min-height:72px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  color:var(--gold2);
+  font-size:25px;
+  font-weight:bold;
+  text-decoration:none;
+  white-space:nowrap;
+}
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:15px;
+}
+nav a:hover{
+  color:var(--gold2);
+}
+.header-cart{
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--gold2);
+  padding:10px 14px;
+  border-radius:8px;
+  font-weight:bold;
+}
+.header-cart:hover{
+  background:var(--gold);
+  color:#000;
+}
+/* ================= HERO ================= */
+.hero{
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  position:relative;
+  background:
+    linear-gradient(rgba(3,8,14,.72),rgba(3,8,14,.88)),
+    url("./casa_masculina_hero.jpg") center/cover no-repeat;
+}
+.hero-content{
+  max-width:850px;
+}
+.hero h1{
+  font-size:clamp(42px,8vw,82px);
+  color:#fff;
+  margin-bottom:16px;
+  letter-spacing:1px;
+}
+.hero h1 span{
+  color:var(--gold2);
+}
+.hero p{
+  color:#d6d9dc;
+  font-size:19px;
+  line-height:1.6;
+  margin-bottom:30px;
+}
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:8px;
+  text-decoration:none;
+  border:1px solid var(--gold);
+  font-weight:bold;
+  transition:.2s;
+}
+.btn-gold{
+  background:var(--gold);
+  color:#050505;
+}
+.btn-outline{
+  color:var(--gold2);
+  background:transparent;
+}
+.btn:hover{
+  transform:translateY(-2px);
+}
+/* ================= PROMO ================= */
+.promo{
+  max-width:1150px;
+  margin:35px auto 0;
+  padding:0 20px;
+}
+.promo-box{
+  border:1px solid var(--gold);
+  background:linear-gradient(135deg,#0b151f,#111c27);
+  border-radius:15px;
+  padding:28px;
+  text-align:center;
+}
+.promo-box h2{
+  color:var(--gold2);
+  margin-bottom:8px;
+}
+.promo-box p{
+  color:var(--muted);
+}
+/* ================= SECTIONS ================= */
+section{
+  padding:70px 20px;
+}
+.container{
+  max-width:1150px;
+  margin:auto;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+.section-title h2{
+  font-size:36px;
+  color:var(--gold2);
+  margin-bottom:8px;
+}
+.section-title p{
+  color:var(--muted);
+}
+/* ================= CATEGORIAS ================= */
+.categories{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:35px;
+}
+.category-btn{
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  padding:10px 17px;
+  border-radius:30px;
+}
+.category-btn:hover,
+.category-btn.active{
+  background:var(--gold);
+  color:#000;
+  border-color:var(--gold);
+}
+/* ================= BUSCA ================= */
+.search{
+  max-width:600px;
+  margin:0 auto 35px;
+}
+.search input{
   width:100%;
-  height:auto;
+  background:var(--panel);
+  color:#fff;
+  border:1px solid var(--line);
+  padding:15px 18px;
+  border-radius:9px;
+  outline:none;
+}
+.search input:focus{
+  border-color:var(--gold);
+}
+/* ================= PRODUTOS ================= */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.product{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:13px;
+  overflow:hidden;
+  transition:.2s;
+}
+.product:hover{
+  transform:translateY(-4px);
+  border-color:#74633d;
+}
+.pic{
+  width:100%;
+  height:250px;
+  background:#0b1219;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.pic img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.pic .emoji{
+  font-size:85px;
+}
+.product-info{
+  padding:17px;
+}
+.product-info h3{
+  font-size:19px;
+  margin-bottom:6px;
+}
+.product-info p{
+  color:var(--muted);
+  font-size:14px;
+  min-height:38px;
+}
+.price{
+  color:var(--gold2);
+  font-size:21px;
+  font-weight:bold;
+  margin:12px 0;
+}
+.add-btn{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--gold);
+  border-radius:8px;
+  background:transparent;
+  color:var(--gold2);
+  font-weight:bold;
+}
+.add-btn:hover{
+  background:var(--gold);
+  color:#000;
+}
+/* ================= MASCOTE ================= */
+.mascote-area{
+  text-align:center;
+}
+.mascote{
+  width:180px;
+  max-width:70%;
+  margin:auto;
   display:block;
-  filter:drop-shadow(0 5px 10px rgba(0,0,0,.4));
 }
-@media(max-width:600px){
-  .mascote{
-  top:70px;
-  right:8px;
-  width:65px;
+/* ================= FOOTER ================= */
+footer{
+  border-top:1px solid var(--line);
+  padding:45px 20px;
+  background:#02060b;
 }
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:30px;
 }
-:root{--bg:#03080e;--panel:#071019;--line:#2b3540;--text:#f5f5f3;--muted:#aeb4bb}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text)}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.topbar{display:flex;justify-content:space-around;gap:20px;padding:10px 4%;border-bottom:1px solid var(--line);font:11px Arial,sans-serif}
-.topitem{display:flex;align-items:center;gap:9px;color:#ddd}
-.topitem span{display:block;color:#89929b;font-size:9px}
-.nav{height:82px;display:flex;align-items:center;gap:25px;padding:0 4%;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(3,8,14,.96);backdrop-filter:blur(10px);z-index:20}
-.menu{font-size:27px;background:none;border:0;color:#fff}
-.logo{height:50px;width:150px;object-fit:contain;border-radius:8px}
-.links{display:flex;gap:30px;margin:auto;font-size:13px;letter-spacing:2px}
-.links a{padding:31px 0;border-bottom:1px solid transparent}
-.links a:hover,.links a.active{border-color:#fff}
-.search{display:flex;border:1px solid #56606a;border-radius:10px;overflow:hidden;width:300px}
-.search input{background:none;border:0;color:#fff;padding:12px 14px;width:100%;outline:0;font-family:Arial}
-.search button{background:none;border:0;color:#fff;padding:0 14px}
-.hero{min-height:390px;display:flex;align-items:center;padding:0 8%;background:linear-gradient(90deg,rgba(3,8,14,.99) 0%,rgba(3,8,14,.88) 36%,rgba(3,8,14,.12) 78%),url('casa_masculina_hero.jpg') center/cover no-repeat;border-bottom:1px solid var(--line)}
-.hero-content{max-width:570px}
-.hero-logo{width:330px;max-width:80%;margin-bottom:15px}
-.kicker{letter-spacing:6px;font-size:15px;line-height:1.8}
-.hero h1{font-size:29px;letter-spacing:5px;font-weight:400;line-height:1.45;margin:8px 0 22px}
-.btn{display:inline-flex;align-items:center;gap:17px;border:1px solid #c9cdd1;background:transparent;color:#fff;padding:13px 22px;letter-spacing:2px;font-size:11px;transition:.25s}
-.btn:hover{background:#fff;color:#03080e}
-.categories{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--line)}
-.cat{padding:21px 12px;text-align:center;border-right:1px solid #1c252e;transition:.2s}
-.cat:hover{background:#0b131c}
-.cat .ico{font-size:27px;margin-bottom:8px}
-.cat b{font-size:12px;letter-spacing:1px;font-weight:400}
-.cat small{display:block;color:#aaa;margin-top:6px;font:10px Arial}
-.section{padding:38px 4%}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.section-title{letter-spacing:4px;font-size:18px;font-weight:400}
-.products{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.card{background:#050c13;border:1px solid #27323d;overflow:hidden;transition:.25s}
-.card:hover{transform:translateY(-4px);border-color:#7b858e}
-.pic{height:190px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,#1d252c,#070d13 70%);position:relative}
-.pic img{width:100%;height:100%;object-fit:contain;display:block}
-.pic span{font-size:68px;opacity:.88}
-.badge{position:absolute;left:10px;top:10px;border:1px solid #ddd;padding:3px 6px;font:9px Arial;letter-spacing:1px}
-.info{padding:13px;font-family:Arial,sans-serif}
-.info h3{font:14px Georgia,serif;margin-bottom:7px}
-.info p{font-size:10px;color:#aeb4bb;margin-bottom:8px}
-.price{font-weight:700;margin-bottom:12px}
-.buy{width:100%;padding:10px;background:transparent;color:#fff;border:1px solid #59636e;font-size:10px;letter-spacing:1px}
-.buy:hover{background:#fff;color:#000}
-.life{min-height:170px;padding:35px 7%;display:flex;align-items:center;justify-content:center;gap:50px;background:linear-gradient(90deg,#0b1117,#03080e);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-.life h2{letter-spacing:5px;font-weight:400;font-size:22px;max-width:350px}
-.life p{font:12px Arial,sans-serif;color:#b7bdc4;max-width:390px;line-height:1.7}
-.footer{padding:35px 7%;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;font-family:Arial,sans-serif;color:#bfc4ca}
-.footer img{width:180px;height:75px;object-fit:contain;border-radius:6px}
-.footer h4{color:#fff;font-family:Georgia,serif;margin-bottom:14px;letter-spacing:2px}
-.footer a{display:block;font-size:12px;margin:8px 0}
-.copyright{grid-column:1/-1;text-align:center;border-top:1px solid #202a34;padding-top:20px;font-size:10px}
-.cart{position:fixed;right:18px;bottom:18px;background:#fff;color:#000;border:0;border-radius:50%;width:56px;height:56px;font-size:20px;z-index:30}
-.toast{position:fixed;bottom:88px;right:18px;background:#fff;color:#000;padding:12px 18px;border-radius:8px;font:12px Arial;display:none;z-index:31}
-@media(max-width:1000px){
-.links{gap:12px}
-.products{grid-template-columns:repeat(3,1fr)}
-.categories{grid-template-columns:repeat(3,1fr)}
-.search{width:200px}
+.footer-logo{
+  width:100px;
+  margin-bottom:15px;
 }
-@media(max-width:700px){
-.topbar{display:none}
-.nav{height:68px;padding:0 15px;gap:12px}
-.logo{width:145px;height:58px}
-.links{display:none}
-.search{margin-left:auto;width:45px;border:0}
-.search input{display:none}
-.search button{padding:8px}
-.hero{min-height:500px;padding:40px 22px;align-items:end;background-position:62% center}
-.hero h1{font-size:21px;letter-spacing:3px}
-.kicker{font-size:12px;letter-spacing:3px}
-.hero-logo{width:270px}
-.products{grid-template-columns:repeat(2,1fr);gap:9px}
-.pic{height:160px}
-.categories{grid-template-columns:repeat(2,1fr)}
-.life{display:block;padding:35px 20px}
-.life p{margin:20px auto}
-.footer{grid-template-columns:1fr;padding:30px 20px}
+footer h3{
+  color:var(--gold2);
+  margin-bottom:12px;
 }
-</style>
-</head>
-<body>
-<div class="topbar">
-<div class="topitem">🛵 <div><b>ENVIO RÁPIDO</b><span>Para todo o Brasil</span></div></div>
-<div class="topitem">🔒 <div><b>COMPRA SEGURA</b><span>Seus dados protegidos</span></div></div>
-<div class="topitem">▣ <div><b>ATENDIMENTO</b><span>100% Online 👨🏻‍💻</span></div></div>
-<div class="topitem"> CE🛒 <b id="topCart">0</b></div>
- </div>
-<nav class="nav">
-<button class="menu" onclick="alert('Menu aberto')">☰</button>
-<span> 🏛️ </span>
-<img class="logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
- <div class="links">
-<a class="active" href="#inicio">|INÍCIO|</a>
-<a href="#produtos">PRODUTOS|</a>
-<a href="#categorias">CATÁLOGO|</a>
-<a href="#sobre">SOBRE NÓS </a>
-<a href="#contato">|CONTATO|</a>
- </div>
-<div class="search">
-<input id="search" placeholder="Buscar produtos..." oninput="filterProducts()">
-<button onclick="filterProducts()">⌕</button>
- </div>
- </nav>
-<section class="hero" id="inicio">
-<div class="hero-content">
-<img class="hero-logo" src="0463b1763f21a424b81d5964ba6599a4.jpg" alt="Casa Masculina">
-<div class="kicker">ESTILO, QUALIDADE E CONFIANÇA EM CADA DETALHE.</div>
-<h1>Preço</h1>
-<button class="btn" onclick="document.querySelector('#produtos').scrollIntoView()">VER COLEÇÃO →</button>
- </div>
-</section>
-<section class="categories" id="categorias">
- <div class="cat" onclick="chooseCat('Cordao')">
-<div class="ico">🧣</div><b>CORDÃO</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Camisetas')">
-<div class="ico">👕</div><b>CAMISETAS</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Shorts')">
-<div class="ico">🩳</div><b>SHORTS</b><small>VER MAIS →</small>
-  </div>
-<div class="cat" onclick="chooseCat('Polos')">
-<div class="ico">◫</div><b>POLOS</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Moletons')">
-<div class="ico">🧥</div><b>MOLETONS</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Calças')">
-<div class="ico">👖</div><b>CALÇAS</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Tênis')">
-<div class="ico">👟</div><b>TÊNIS</b><small>VER MAIS →</small>
- </div>
-<div class="cat" onclick="chooseCat('Acessórios')">
-<div class="ico">⌚</div><b>ACESSÓRIOS</b><small>VER MAIS →</small>
- </div>
- <div class="cat" onclick="chooseCat('Fragancias')">
-<div class="ico">🪻</div><b>FRAGANCIAS</b><small>VER MAIS →</small>
- </div>
- <div class="cat" onclick="chooseCat('Mochilas')">
-<div class="ico">🎒</div><b>MOCHILAS</b><small>VER MAIS →</small>
- </div>
- <div class="cat" onclick="chooseCat('Oculos')">
-<div class="ico">👓</div><b>OCULOS</b><small>VER MAIS →</small>
- </div>
-</section>
-<section class="section" id="produtos">
-<div class="section-head">
-<h2 class="section-title">PRODUTOS EM DESTAQUE</h2>
-<button class="btn" style="padding:8px 12px" onclick="showAll()">VER TODOS →</button>
- </div>
-<div class="products" id="productGrid"></div>
-</section>
-<section class="life" id="sobre">
-<h2>Preço Baixo<br>Qualidade acima..</h2>
-<p>
-Na Casa Masculina, você encontra peças selecionadas
-para o homem moderno, que valoriza qualidade,
-conforto e autenticidade.
-</p>
-<a class="btn" href="#contato">CONHEÇA NOSSA LOJA →</a>
-</section>
-<footer class="footer" id="contato">
-<div>
-<img src="casa_masculina_logo.png" alt="Casa Masculina">
-</div>
-<div>
-<h4>INFORMAÇÕES</h4>
-<a href="#inicio">Início</a>
-<a href="#produtos">Produtos</a>
-<a href="#categorias">Categorias</a>
-<a href="#sobre">Sobre Nós</a>
-</div>
-<div>
-<h4>CONTATO</h4>
-<a href="https://wa.me/5585988485980" target="_blank">WhatsApp: (85) 98848-5980</a>
-<a href="https://instagram.com/casamasculiina" target="_blank">Instagram: casamasculiina</a>
-</div>
-<div>
-<h4>CASA MASCULINA</h4>
-<a>Since 2025</a>
-<a>Atendimento online</a>
-<a>Compra segura</a>
-</div>
-<div class="copyright">
-© 2025 Casa Masculina. Todos os direitos reservados.
-</div>
-</footer>
-<button class="cart" onclick="showCart()">🛒</button>
-<div class="toast" id="toast"></div>
-<script>
-const products = [
-[
-'Short Tactel Mr2',
-'Conforto & Estilo',
-'R$ 29,99',
-'Shorts',
-'./IMG-20260928-WA0002.jpg'
-],
- [
-'Short Linho Mr2',
-'Conforto & Estilo',
-'R$ 34,99',
-'Shorts',
-'./IMG-20260928-WA0009.jpg'
- ],
- [
-'Short Nike Jordam preto',
-'100% Algodão',
-'R$ 69,99',
-'Shorts',
-'./1ea30dd69c55a61e9c79ae5619e90ae0.jpg'
-],
- [
-'Short HipHop Rosa',
-'100% Algodão',
-'R$ 69,99',
-'Shorts',
-'./ade6ab86c510c2a797f7df603a94727b.jpg'
-],
- [
-'Camisa Lacoste laranja',
-'100% Algodão',
-'R$ 59,99',
-'Camisetas',
-'./a1191bbca3554a86b6d37c66c9c79a85.jpg'
-],
-[
-'Camisa Lacoste Azul',
-'100% Algodão',
-'R$ 59,99',
-'Camisetas',
-'./35475abc24772d333ee1e5c0dec8d1ff.jpg'
-],
- [
-'Mochila HipHop Branca',
-'100% Qualidade',
-'R$ 99,99',
-'Mochilas',
-'./efa329b65007790f03872b6b567bbc19.jpg'
-],
- [
-'Perfume Malbec',
-'100% Original',
-'R$ 189,99',
-'Fragancias',
-'./e26604ce2e07176fabb509ce2caca4eb.jpg'
-], 
-[
-'Polo Mr2',
-'Algodão 100%',
-'R$ 129,99',
-'Polos',
-'👔'
-],
-[
-'Moletom NIKE vermelho',
-'Capuz e Bolso Canguru',
-'R$ 119,99',
-'Moletons',
-'./fd42b0194f1363b63724e7b5a7b6f7f8.jpg'
-],
-[
-'Calça Jeans',
-'Conforto e Elegância',
-'R$ 104,99',
-'Calças',
-'./c608d0ce97b27e445391cdf45b778e9f.jpg'
-],
-[
-'Tênis HipHop Branco',
-'Estilo e Versatilidade',
-'R$ 114,99',
-'Tênis',
-'./b396fe3895e656e4809a301b2e5336b0.jpg'
-],
-[
-'Boné Casual',
-'Ajuste Perfeito',
-'R$ 59,90',
-'Acessórios',
-'./aac760a5d958397c3a3f4857e812e135.jpg'
-],
- [
-'Bone Lacoste ',
-'Conforto & Estilo',
-'R$ 59,99',
-'Acessórios',
-'./f3a8c2107aff17aab4cbfd9f6007e833.jpg'
- ],
-[
-'Relógio Casual',
-'Estilo e qualidade',
-'R$ 114,99',
-'Acessórios',
-'⌚'
-],
-[
-'Cordao Cravejado Jesus Cristo',
-'Estilo e conforto',
-'R$ 119,99',
-'Cordão',
-'./4f8e444a29496016b809958b62b5326d.jpg'
-],
-[
-'Juliete',
-'Estilo e conforto',
-'R$ 69,99',
-'Oculos',
-'./809673b10df4e620f83974be8018adba.jpg'
-],
- [
-'Juliete',
-'Estilo e conforto',
-'R$ 69,99',
-'Oculos',
-'./bab26070dbdf71c52894ee54b4578e4d.jpg'
-]
-];
-let cart=0;
-function render(list=products){
-document.getElementById('productGrid').innerHTML=list.map(p=>{
-const visual=p[4].includes('.')
-?`<img src="${p[4]}" alt="${p[0]}">`
-:`<span>${p[4]}</span>`;
-return `
-<article class="card">
-<div class="pic">
-${visual}
-<div class="badge">NOVO</div>
-</div>
-<div class="info">
-<h3>${p[0]}</h3>
-<p>${p[1]}</p>
-<div class="price">${p[2]}</div>
-<button class="buy" onclick="addCart('${p[0]}')">
-🛒 COMPRAR
-</button>
-</div>
-</article>
-`;
-}).join('');
+footer p,
+footer a{
+  color:var(--muted);
+  line-height:1.8;
+  text-decoration:none;
 }
-function addCart(name){
-cart++;
-document.getElementById('topCart').textContent=cart;
-toast(name+' adicionado ao carrinho.');
+footer a:hover{
+  color:var(--gold2);
 }
-function showCart(){
-toast(
-cart
-?`Você tem ${cart} item(ns) no carrinho.`
-:'Seu carrinho está vazio.'
-);
+.copyright{
+  text-align:center;
+  color:#707780;
+  margin-top:35px;
+  padding-top:25px;
+  border-top:1px solid var(--line);
 }
-function toast(msg){
-const t=document.getElementById('toast');
-t.textContent=msg;
-t.style.display='block';
-setTimeout(()=>{
-t.style.display='none';
-},2200);
+/* ================= WHATSAPP ================= */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:1500;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:28px;
+  box-shadow:0 5px 20px rgba(0,0,0,.4);
 }
-function filterProducts(){
-const q=document.getElementById('search').value.toLowerCase();
-render(
-products.filter(p=>
-p.join(' ').toLowerCase().includes(q)
-)
-);
+/* ================= CARRINHO ================= */
+.cart-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:1900;
+  display:none;
 }
-function chooseCat(cat){
-document.getElementById('search').value=cat;
-filterProducts();
-document.querySelector('#produtos').scrollIntoView();
+.cart-overlay.open{
+  display:block;
 }
-function showAll(){
-document.getElementById('search').value='';
-render();
+.cart{
+  position:fixed;
+  top:0;
+  right:-430px;
+  width:min(430px,100%);
+  height:100vh;
+  background:#071019;
+  border-left:1px solid var(--line);
+  z-index:2000;
+  transition:.3s ease;
+  display:flex;
+  flex-direction:column;
 }
-render();
-</script>
- 
- <div class="mascote">
- <img src="./mascote..gif" alt="Mascote Casa Masculina">
- </div> 
- 
-</body>
-</html>
+.cart.open{
+  right:0;
+}
+.cart-header{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.cart-header h2{
+  color:var(--gold2);
+}
+.close-cart{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:28px;
+}
+.cart-body{
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
+}
+.empty-cart{
+  color:var(--muted);
+  text-align:center;
+  padding:50px 20px;
+}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  border-bottom:1px solid var(--line);
+  padding:15px 0;
+}
+.cart-item h4{
+  margin-bottom:5px;
+}
+.cart-item small{
+  color:var(--muted);
+}
+.cart-item-right{
+  text-align:right;
+  white-space:nowrap;
+}
+.remove-btn{
+  border:0;
+  background:none;
+  color:var(--danger);
+  margin-top:7px;
+}
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--line);
+}
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+.total span:last-child{
+  color:var(--gold2);
+}
+.checkout{
+  width:100%;
