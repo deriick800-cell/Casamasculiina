@@ -1193,4 +1193,759 @@ function renderCategories(){
 
 /* =========================
    PRODUTOS
-==================a
+============================
+function renderProducts(){
+
+  const box =
+    document.getElementById("products");
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+  box.innerHTML = "";
+
+  const filtered =
+    products.filter(product => {
+
+      const matchCategory =
+        selectedCategory === "Todos" ||
+        product.category === selectedCategory;
+
+      const matchSearch =
+        product.name.toLowerCase().includes(search) ||
+        product.desc.toLowerCase().includes(search) ||
+        product.category.toLowerCase().includes(search);
+
+      return matchCategory && matchSearch;
+
+    });
+
+  if(!filtered.length){
+
+    box.innerHTML =
+      '<div class="empty">Nenhum produto encontrado.</div>';
+
+    return;
+
+  }
+
+  filtered.forEach(product => {
+
+    const index =
+      products.findIndex(
+        item => item === product
+      );
+
+    const card =
+      document.createElement("article");
+
+    card.className = "card";
+
+    let image = product.image;
+
+    if(!image){
+
+      image =
+        "https://via.placeholder.com/600x600/101820/d9b56d?text=Casa+Masculina";
+
+    }
+
+    card.innerHTML = `
+
+      <img
+        class="product-img"
+        src="${image}"
+        alt="${product.name}"
+        onerror="this.src='https://via.placeholder.com/600x600/101820/d9b56d?text=Casa+Masculina'"
+      >
+
+      <div class="product-info">
+
+        <div class="product-cat">
+          ${product.category}
+        </div>
+
+        <div class="product-name">
+          ${product.name}
+        </div>
+
+        <div class="product-desc">
+          ${product.desc}
+        </div>
+
+        <div class="product-bottom">
+
+          <span class="price">
+            ${money(product.price)}
+          </span>
+
+          <button
+            class="add-btn"
+            onclick="addCart(${index})"
+          >
+            Adicionar
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+    box.appendChild(card);
+
+  });
+
+}
+
+/* =========================
+   CARRINHO
+========================= */
+
+function addCart(index){
+
+  const product = products[index];
+
+  if(!product) return;
+
+  cartItems.push({
+    name:product.name,
+    price:Number(product.price),
+    image:product.image
+  });
+
+  saveData();
+
+  updateCart();
+
+  showToast(
+    product.name + " adicionado ao carrinho."
+  );
+
+}
+
+function updateCart(){
+
+  const totalItems =
+    cartItems.length;
+
+  document.getElementById("topCart")
+    .textContent = totalItems;
+
+  document.getElementById("floatCart")
+    .textContent = totalItems;
+
+  const box =
+    document.getElementById("cartItems");
+
+  box.innerHTML = "";
+
+  if(!cartItems.length){
+
+    box.innerHTML =
+      '<div class="empty">Seu carrinho está vazio.</div>';
+
+  }
+
+  cartItems.forEach((item,index) => {
+
+    const row =
+      document.createElement("div");
+
+    row.className = "cart-item";
+
+    const image =
+      item.image ||
+      "https://via.placeholder.com/100x100/101820/d9b56d?text=CM";
+
+    row.innerHTML = `
+
+      <img src="${image}" alt="${item.name}">
+
+      <div>
+
+        <div class="cart-item-name">
+          ${item.name}
+        </div>
+
+        <div class="cart-item-price">
+          ${money(item.price)}
+        </div>
+
+      </div>
+
+      <button
+        class="remove"
+        onclick="removeCart(${index})"
+      >
+        Remover
+      </button>
+
+    `;
+
+    box.appendChild(row);
+
+  });
+
+  const total =
+    cartItems.reduce(
+      (sum,item) => sum + Number(item.price),
+      0
+    );
+
+  document.getElementById("cartTotal")
+    .textContent = money(total);
+
+}
+
+function removeCart(index){
+
+  cartItems.splice(index,1);
+
+  saveData();
+  updateCart();
+
+}
+
+function clearCart(){
+
+  cartItems = [];
+
+  saveData();
+  updateCart();
+
+}
+
+function openCart(){
+
+  updateCart();
+
+  document
+    .getElementById("cartOverlay")
+    .classList.add("show");
+
+}
+
+function closeCart(event){
+
+  if(
+    event &&
+    event.target !== event.currentTarget
+  ) return;
+
+  document
+    .getElementById("cartOverlay")
+    .classList.remove("show");
+
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function checkoutWhatsApp(){
+
+  if(!cartItems.length){
+
+    showToast("Seu carrinho está vazio.");
+
+    return;
+
+  }
+
+  let message =
+    "Olá, Casa Masculina! Gostaria de fazer um pedido:%0A%0A";
+
+  let total = 0;
+
+  cartItems.forEach((item,i) => {
+
+    message +=
+      `${i+1}. ${item.name} - ${money(item.price)}%0A`;
+
+    total += Number(item.price);
+
+  });
+
+  message +=
+    `%0ATotal: ${money(total)}`;
+
+  window.open(
+    "https://wa.me/5585988485980?text=" + message,
+    "_blank"
+  );
+
+}
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer =
+    setTimeout(
+      () => toast.classList.remove("show"),
+      2500
+    );
+
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+function openAdmin(){
+
+  renderAdminProducts();
+  renderAdminCategories();
+
+  document
+    .getElementById("adminOverlay")
+    .classList.add("show");
+
+}
+
+function closeAdmin(){
+
+  document
+    .getElementById("adminOverlay")
+    .classList.remove("show");
+
+}
+
+function showTab(id,button){
+
+  document
+    .querySelectorAll(".admin-section")
+    .forEach(section =>
+      section.classList.remove("active")
+    );
+
+  document
+    .querySelectorAll(".tab")
+    .forEach(tab =>
+      tab.classList.remove("active")
+    );
+
+  document
+    .getElementById(id)
+    .classList.add("active");
+
+  button.classList.add("active");
+
+}
+
+/* =========================
+   LISTA ADMIN
+========================= */
+
+function renderAdminProducts(){
+
+  const box =
+    document.getElementById("adminProductList");
+
+  box.innerHTML = "";
+
+  products.forEach((product,index) => {
+
+    const row =
+      document.createElement("div");
+
+    row.className = "admin-product";
+
+    const image =
+      product.image ||
+      "https://via.placeholder.com/100x100/101820/d9b56d?text=CM";
+
+    row.innerHTML = `
+
+      <img src="${image}" alt="">
+
+      <div>
+
+        <strong>${product.name}</strong>
+
+        <div style="color:var(--muted);font-size:13px;margin-top:5px">
+          ${product.category} • ${money(product.price)}
+        </div>
+
+      </div>
+
+      <div class="admin-actions">
+
+        <button
+          class="small-btn gold"
+          onclick="editProduct(${index})"
+        >
+          Editar
+        </button>
+
+        <button
+          class="small-btn red"
+          onclick="deleteProduct(${index})"
+        >
+          Excluir
+        </button>
+
+      </div>
+
+    `;
+
+    box.appendChild(row);
+
+  });
+
+}
+
+/* =========================
+   EDITAR PRODUTO
+========================= */
+
+function editProduct(index){
+
+  const product =
+    products[index];
+
+  document.getElementById("editIndex")
+    .value = index;
+
+  document.getElementById("productName")
+    .value = product.name;
+
+  document.getElementById("productPrice")
+    .value = product.price;
+
+  document.getElementById("productDescription")
+    .value = product.desc;
+
+  document.getElementById("productImage")
+    .value = product.image;
+
+  updateCategorySelect();
+
+  document.getElementById("productCategory")
+    .value = product.category;
+
+  document
+    .querySelector('[onclick*="adminAdd"]')
+    .click();
+
+}
+
+function saveProduct(event){
+
+  event.preventDefault();
+
+  const index =
+    Number(
+      document.getElementById("editIndex").value
+    );
+
+  const product = {
+
+    name:
+      document.getElementById("productName").value.trim(),
+
+    price:
+      Number(
+        document.getElementById("productPrice").value
+      ),
+
+    desc:
+      document.getElementById("productDescription").value.trim(),
+
+    category:
+      document.getElementById("productCategory").value,
+
+    image:
+      document.getElementById("productImage").value.trim()
+
+  };
+
+  if(index >= 0){
+
+    products[index] = product;
+
+  }else{
+
+    products.push(product);
+
+  }
+
+  saveData();
+
+  renderProducts();
+  renderAdminProducts();
+
+  document.querySelector("#adminAdd form").reset();
+
+  document.getElementById("editIndex")
+    .value = "-1";
+
+  showToast("Produto salvo.");
+
+}
+
+function deleteProduct(index){
+
+  if(
+    !confirm(
+      "Tem certeza que deseja excluir este produto?"
+    )
+  ) return;
+
+  products.splice(index,1);
+
+  saveData();
+
+  renderProducts();
+  renderAdminProducts();
+
+  showToast("Produto excluído.");
+
+}
+
+/* =========================
+   CATEGORIAS ADMIN
+========================= */
+
+function updateCategorySelect(){
+
+  const select =
+    document.getElementById("productCategory");
+
+  select.innerHTML = "";
+
+  categories
+    .filter(category => category !== "Todos")
+    .forEach(category => {
+
+      const option =
+        document.createElement("option");
+
+      option.value = category;
+      option.textContent = category;
+
+      select.appendChild(option);
+
+    });
+
+}
+
+function addCategory(event){
+
+  event.preventDefault();
+
+  const input =
+    document.getElementById("newCategory");
+
+  const name =
+    input.value.trim();
+
+  if(!name) return;
+
+  if(
+    categories.some(
+      category =>
+        category.toLowerCase() === name.toLowerCase()
+    )
+  ){
+
+    showToast("Essa categoria já existe.");
+
+    return;
+
+  }
+
+  categories.push(name);
+
+  saveData();
+
+  input.value = "";
+
+  renderCategories();
+  renderAdminCategories();
+
+  showToast("Categoria adicionada.");
+
+}
+
+function renderAdminCategories(){
+
+  const box =
+    document.getElementById("categoryAdminList");
+
+  box.innerHTML = "";
+
+  categories
+    .filter(category => category !== "Todos")
+    .forEach(category => {
+
+      const row =
+        document.createElement("div");
+
+      row.className = "category-row";
+
+      row.innerHTML = `
+
+        <span>${category}</span>
+
+        <button
+          class="small-btn red"
+          onclick="deleteCategory('${category.replace(/'/g,"\\'")}')"
+        >
+          Excluir
+        </button>
+
+      `;
+
+      box.appendChild(row);
+
+    });
+
+}
+
+function deleteCategory(category){
+
+  const used =
+    products.some(
+      product => product.category === category
+    );
+
+  if(used){
+
+    showToast(
+      "Existem produtos usando essa categoria."
+    );
+
+    return;
+
+  }
+
+  categories =
+    categories.filter(
+      item => item !== category
+    );
+
+  if(selectedCategory === category){
+
+    selectedCategory = "Todos";
+
+  }
+
+  saveData();
+
+  renderCategories();
+  renderAdminCategories();
+
+}
+
+/* =========================
+   FONTES
+========================= */
+
+function changeFont(){
+
+  const font =
+    document.getElementById("fontSelect").value;
+
+  document.body.style.fontFamily =
+    `"${font}", serif`;
+
+  localStorage.setItem(
+    "cm_font",
+    font
+  );
+
+  document.getElementById("fontPreview")
+    .style.fontFamily =
+    `"${font}", serif`;
+
+}
+
+function loadFont(){
+
+  const font =
+    localStorage.getItem("cm_font");
+
+  if(!font) return;
+
+  document.body.style.fontFamily =
+    `"${font}", serif`;
+
+  document.getElementById("fontSelect")
+    .value = font;
+
+  document.getElementById("fontPreview")
+    .style.fontFamily =
+    `"${font}", serif`;
+
+}
+
+/* =========================
+   RESTAURAR
+========================= */
+
+function restoreDefaults(){
+
+  if(
+    !confirm(
+      "Restaurar todos os produtos e categorias originais?"
+    )
+  ) return;
+
+  products =
+    JSON.parse(
+      JSON.stringify(defaultProducts)
+    );
+
+  categories =
+    JSON.parse(
+      JSON.stringify(defaultCategories)
+    );
+
+  saveData();
+
+  selectedCategory = "Todos";
+
+  renderCategories();
+  renderProducts();
+  renderAdminProducts();
+  renderAdminCategories();
+
+  showToast("Dados restaurados.");
+
+}
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+renderCategories();
+
+renderProducts();
+
+updateCart();
+
+loadFont();
+
+</script>
+
+</body>
+</html>
