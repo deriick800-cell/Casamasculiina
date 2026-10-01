@@ -940,65 +940,57 @@ name:"Short Tactel Mr2",
 desc:"Conforto & Estilo",
 price:29.99,
 category:"Shorts",
-image:"IMG-20260928-WA0002.jpg"
+image:"./IMG-20260928-WA0002.jpg"
 },
-
 {
 name:"Short Linho Mr2",
 desc:"Conforto & Estilo",
 price:34.99,
 category:"Shorts",
-image:"IMG-20260928-WA0009.jpg"
+image:"./IMG-20260928-WA0009.jpg"
 },
-
 {
 name:"Short Nike Jordam preto",
 desc:"100% Algodão",
 price:69.99,
 category:"Shorts",
-image:"1ea30dd69c55a61e9c79ae5619e90ae0.jpg"
+image:"./1ea30dd69c55a61e9c79ae5619e90ae0.jpg"
 },
-
 {
 name:"Short HipHop Rosa",
 desc:"100% Algodão",
 price:69.99,
 category:"Shorts",
-image:"ade6ab86c510c2a797f7df603a94727b.jpg"
+image:"./ade6ab86c510c2a797f7df603a94727b.jpg"
 },
-
 {
 name:"Camisa Lacoste laranja",
 desc:"100% Algodão",
 price:59.99,
 category:"Camisetas",
-image:"a1191bbca3554a86b6d37c66c9c79a85.jpg"
+image:"./a1191bbca3554a86b6d37c66c9c79a85.jpg"
 },
-
 {
 name:"Camisa Lacoste Azul",
 desc:"100% Algodão",
 price:59.99,
 category:"Camisetas",
-image:"35475abc24772d333ee1e5c0dec8d1ff.jpg"
+image:"./35475abc24772d333ee1e5c0dec8d1ff.jpg"
 },
-
 {
 name:"Mochila HipHop Branca",
 desc:"100% Qualidade",
 price:99.99,
 category:"Mochilas",
-image:"efa329b65007790f03872b6b567bbc19.jpg"
+image:"./efa329b65007790f03872b6b567bbc19.jpg"
 },
-
 {
 name:"Perfume Malbec",
 desc:"100% Original",
 price:189.99,
 category:"Fragancias",
-image:"e26604ce2e07176fabb509ce2caca4eb.jpg"
+image:"./e26604ce2e07176fabb509ce2caca4eb.jpg"
 },
-
 {
 name:"Polo Mr2",
 desc:"Algodão 100%",
@@ -1006,47 +998,41 @@ price:129.99,
 category:"Polos",
 image:""
 },
-
 {
 name:"Moletom NIKE vermelho",
 desc:"Capuz e Bolso Canguru",
 price:119.99,
 category:"Moletons",
-image:"fd42b0194f1363b63724e7b5a7b6f7f8.jpg"
+image:"./fd42b0194f1363b63724e7b5a7b6f7f8.jpg"
 },
-
 {
 name:"Calça Jeans",
 desc:"Conforto e Elegância",
 price:104.99,
 category:"Calças",
-image:"c608d0ce97b27e445391cdf45b778e9f.jpg"
+image:"./c608d0ce97b27e445391cdf45b778e9f.jpg"
 },
-
 {
 name:"Tênis HipHop Branco",
 desc:"Estilo e Versatilidade",
 price:114.99,
 category:"Tênis",
-image:"b396fe3895e656e4809a301b2e5336b0.jpg"
+image:"./b396fe3895e656e4809a301b2e5336b0.jpg"
 },
-
 {
 name:"Boné Casual",
 desc:"Ajuste Perfeito",
 price:59.90,
 category:"Acessórios",
-image:"aac760a5d958397c3a3f4857e812e135.jpg"
+image:"./aac760a5d958397c3a3f4857e812e135.jpg"
 },
-
 {
 name:"Bone Lacoste",
 desc:"Conforto & Estilo",
 price:59.99,
 category:"Acessórios",
-image:"f3a8c2107aff17aab4cbfd9f6007e833.jpg"
+image:"./f3a8c2107aff17aab4cbfd9f6007e833.jpg"
 },
-
 {
 name:"Relógio Casual",
 desc:"Estilo e qualidade",
@@ -1054,31 +1040,27 @@ price:114.99,
 category:"Acessórios",
 image:""
 },
-
 {
 name:"Cordao Cravejado Jesus Cristo",
 desc:"Estilo e conforto",
 price:119.99,
 category:"Cordão",
-image:"4f8e444a29496016b809958b62b5326d.jpg"
+image:"./4f8e444a29496016b809958b62b5326d.jpg"
 },
-
 {
 name:"Juliete",
 desc:"Estilo e conforto",
 price:69.99,
 category:"Oculos",
-image:"809673b10df4e620f83974be8018adba.jpg"
+image:"./809673b10df4e620f83974be8018adba.jpg"
 },
-
 {
 name:"Juliete",
 desc:"Estilo e conforto",
 price:69.99,
 category:"Oculos",
-image:"bab26070dbdf71c52894ee54b4578e4d.jpg"
+image:"./bab26070dbdf71c52894ee54b4578e4d.jpg"
 }
-
 ];
 
 const defaultCategories = [
@@ -1190,10 +1172,11 @@ function renderCategories(){
   updateCategorySelect();
 
 }
-
+{
 /* =========================
    PRODUTOS
-============================
+============================ /*
+
 function renderProducts(){
 
   const box =
@@ -1253,55 +1236,38 @@ function renderProducts(){
         "https://via.placeholder.com/600x600/101820/d9b56d?text=Casa+Masculina";
 
     }
-
     card.innerHTML = `
-
       <img
         class="product-img"
         src="${image}"
         alt="${product.name}"
         onerror="this.src='https://via.placeholder.com/600x600/101820/d9b56d?text=Casa+Masculina'"
       >
-
       <div class="product-info">
-
         <div class="product-cat">
           ${product.category}
         </div>
-
         <div class="product-name">
           ${product.name}
         </div>
-
         <div class="product-desc">
           ${product.desc}
         </div>
-
-        <div class="product-bottom">
-
-          <span class="price">
-            ${money(product.price)}
-          </span>
-
-          <button
-            class="add-btn"
-            onclick="addCart(${index})"
-          >
-            Adicionar
-          </button>
-
-        </div>
-
-      </div>
-
+     <div class="product-bottom">
+      <span class="price">
+       ${money(product.price)}
+    </span>
+<button
+class="add-btn"
+onclick="addCart(${index})" >
+Adicionar
+</button>
+</div>
+</div>
     `;
-
-    box.appendChild(card);
-
+ box.appendChild(card);
   });
-
 }
-
 /* =========================
    CARRINHO
 ========================= */
