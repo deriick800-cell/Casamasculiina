@@ -1103,7 +1103,7 @@ function loadJSON(key, fallback){
   return JSON.parse(JSON.stringify(fallback));
 }
 
-let products = loadJSON("cm_products", defaultProducts);
+let products = defaultProducts;
 
 let categories = loadJSON("cm_categories", defaultCategories);
 
