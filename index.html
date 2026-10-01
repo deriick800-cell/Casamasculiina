@@ -1083,16 +1083,31 @@ const defaultCategories = [
 ========================= */
 
 let products =
-JSON.parse(localStorage.getItem("cm_products")) ||
-JSON.parse(JSON.stringify(defaultProducts));
+function loadJSON(key, fallback){
 
-let categories =
-JSON.parse(localStorage.getItem("cm_categories")) ||
-JSON.parse(JSON.stringify(defaultCategories));
+  try{
 
-let cartItems =
-JSON.parse(localStorage.getItem("cm_cart")) || [];
+    const saved = localStorage.getItem(key);
 
+    if(saved){
+      return JSON.parse(saved);
+    }
+
+  }catch(error){
+
+    console.warn("Dados antigos removidos:", key);
+    localStorage.removeItem(key);
+
+  }
+
+  return JSON.parse(JSON.stringify(fallback));
+}
+
+let products = loadJSON("cm_products", defaultProducts);
+
+let categories = loadJSON("cm_categories", defaultCategories);
+
+let cartItems = loadJSON("cm_cart", []);
 let selectedCategory = "Todos";
 
 /* =========================
@@ -1904,11 +1919,8 @@ function restoreDefaults(){
 ========================= */
 
 renderCategories();
-
 renderProducts();
-
 updateCart();
-
 loadFont();
 
 </script>
