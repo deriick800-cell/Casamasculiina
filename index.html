@@ -6,6 +6,27 @@
 <title>Casa Masculina 🏛️ | Since 2025</title>
 
 <style>
+ .mascote{
+  position:fixed;
+  top:75px;
+  right:12px;
+  width:75px;
+  z-index:9999;
+  pointer-events:none;
+}
+.mascote img{
+  width:100%;
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 5px 10px rgba(0,0,0,.4));
+}
+@media(max-width:600px){
+  .mascote{
+  top:70px;
+  right:8px;
+  width:65px;
+}
+}
 :root{--bg:#03080e;--panel:#071019;--line:#2b3540;--text:#f5f5f3;--muted:#aeb4bb}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -392,5 +413,8 @@ render();
 }
 render();
 </script>
+ <div class="mascote">
+  <img src="./mascote.gif" alt="Mascote Casa Masculina">
+ </div>
 </body>
 </html>
