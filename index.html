@@ -1817,3 +1817,247 @@
     loading="lazy"
     onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
      >
+
+     product.image:"0463b1763f21a424b81d5964ba6599a4.jpg";
+ element.innerHTML = `
+         <img
+                    class="cart-item-image"
+                    src="${image}"
+                    alt="${product.name}"
+                >
+                <div>
+                    <h4>
+                        ${product.name}
+                    </h4>
+
+                    <small>
+                        ${item.quantity} ×
+                        ${formatPrice(product.price)}
+                    </small>
+
+                </div>
+
+                <div class="cart-item-price">
+                    ${formatPrice(subtotal)}
+                </div>
+
+            `;
+
+
+            container.appendChild(element);
+
+        });
+
+
+        totalElement.textContent =
+            formatPrice(total);
+
+    }
+
+
+    /* =========================================
+       ABRIR CARRINHO
+    ========================================= */
+
+    function openCart(){
+
+        document
+            .getElementById("cartOverlay")
+            .classList.add("open");
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    /* =========================================
+       FECHAR CARRINHO
+    ========================================= */
+
+    function closeCart(){
+
+        document
+            .getElementById("cartOverlay")
+            .classList.remove("open");
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    function closeCartOutside(event){
+
+        if(
+            event.target.id ===
+            "cartOverlay"
+        ){
+
+            closeCart();
+
+        }
+
+    }
+
+
+    /* =========================================
+       LIMPAR CARRINHO
+    ========================================= */
+
+    function clearCart(){
+
+        cart = [];
+
+        saveCart();
+        updateCart();
+
+        showToast(
+            "Carrinho limpo"
+        );
+
+    }
+
+
+    /* =========================================
+       WHATSAPP
+    ========================================= */
+
+    function checkoutWhatsApp(){
+
+        if(cart.length === 0){
+
+            showToast(
+                "Seu carrinho está vazio"
+            );
+
+            return;
+
+        }
+
+
+        let message =
+            "Olá! Gostaria de fazer um pedido na Casa Masculina:%0A%0A";
+
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            const product =
+                products.find(
+                    product =>
+                        product.id === item.id
+                );
+
+
+            if(!product){
+                return;
+            }
+
+
+            const subtotal =
+                product.price *
+                item.quantity;
+
+            total += subtotal;
+
+
+            message +=
+                `${item.quantity}x ${product.name} - ${formatPrice(subtotal)}%0A`;
+
+        });
+
+
+        message +=
+            `%0ATotal: ${formatPrice(total)}%0A%0A`;
+
+        message +=
+            "Gostaria de finalizar meu pedido.";
+
+
+        const url =
+            "https://wa.me/5585988485980?text=" +
+            encodeURIComponent(
+                decodeURIComponent(message)
+            );
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+
+
+    /* =========================================
+       TOAST
+    ========================================= */
+
+    let toastTimer;
+
+
+    function showToast(message){
+
+        const toast =
+            document.getElementById("toast");
+
+        toast.textContent =
+            message;
+
+        toast.classList.add("show");
+
+
+        clearTimeout(toastTimer);
+
+
+        toastTimer =
+            setTimeout(
+                () => {
+
+                    toast.classList.remove(
+                        "show"
+                    );
+
+                },
+                2200
+            );
+    }
+
+    /* =========================================
+       PESQUISA
+    ========================================= */
+
+    document
+        .getElementById("searchInput")
+        .addEventListener(
+            "input",
+            renderProducts
+        );
+
+    /* =========================================
+       ESC
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+            if(event.key === "Escape"){
+                closeCart();
+            }
+        }
+    );
+
+    /* =========================================
+       INICIALIZAÇÃO
+    ========================================= */
+
+    renderCategories();
+    renderProducts();
+    updateCart();
+
+</script>
+</body>
+</html>
