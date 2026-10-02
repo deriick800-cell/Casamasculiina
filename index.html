@@ -1,1566 +1,849 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Casa Masculina | Since 2025</title>
-
-<style>
-
-/* =====================================================
-   CORES
-===================================================== */
-
-:root{
-  --bg:#03080e;
-  --panel:#071019;
-  --panel2:#0b141c;
-  --line:#303943;
-
-  --text:#f2f3f4;
-  --muted:#aeb5bc;
-
-  /* CINZA / TEMPLO */
-  --metal:#8c969e;
-  --metal2:#c3c9cd;
-  --metal-dark:#555f67;
-
-  --white:#f4f4f4;
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-button,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-
-/* =====================================================
-   BARRA SUPERIOR
-===================================================== */
-
-.topbar{
-  height:32px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-bottom:1px solid #252d34;
-
-  color:#b9bec2;
-
-  font-family:Arial,sans-serif;
-  font-size:10px;
-  letter-spacing:2px;
-
-  text-transform:uppercase;
-}
-
-
-/* =====================================================
-   NAV
-===================================================== */
-
-.nav{
-  min-height:90px;
-
-  display:flex;
-  align-items:center;
-
-  gap:25px;
-
-  padding:12px 5%;
-
-  border-bottom:1px solid var(--line);
-
-  background:rgba(3,8,14,.97);
-
-  backdrop-filter:blur(12px);
-
-  position:sticky;
-  top:0;
-
-  z-index:50;
-}
-
-
-/* LOGO */
-
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  min-width:270px;
-}
-
-.logo-symbol{
-  width:58px;
-  height:58px;
-
-  object-fit:contain;
-}
-
-.brand-name{
-  font-family:Georgia,"Times New Roman",serif;
-
-  font-size:27px;
-
-  color:#e6e8e9;
-
-  letter-spacing:-1px;
-
-  white-space:nowrap;
-}
-
-.brand-name span{
-  color:#aeb5ba;
-}
-
-
-/* PESQUISA */
-
-.search{
-  height:44px;
-
-  flex:1;
-
-  max-width:390px;
-
-  display:flex;
-  align-items:center;
-
-  border:1px solid #3e474f;
-
-  border-radius:9px;
-
-  background:#071019;
-
-  overflow:hidden;
-}
-
-.search-icon{
-  padding-left:14px;
-
-  font-size:20px;
-
-  color:#bfc5c9;
-}
-
-.search input{
-  width:100%;
-  height:100%;
-
-  border:0;
-  outline:0;
-
-  background:transparent;
-
-  color:white;
-
-  padding:0 12px;
-
-  font-family:Arial,sans-serif;
-
-  font-size:13px;
-}
-
-.search input::placeholder{
-  color:#8b949c;
-}
-
-
-/* LINKS */
-
-.links{
-  display:flex;
-  align-items:center;
-
-  gap:26px;
-
-  margin-left:auto;
-
-  font-size:12px;
-
-  letter-spacing:1px;
-
-  white-space:nowrap;
-}
-
-.links a{
-  color:#c1c6ca;
-
-  padding:15px 0;
-
-  border-bottom:1px solid transparent;
-
-  transition:.2s;
-}
-
-.links a:hover{
-  color:white;
-
-  border-color:#aeb5ba;
-}
-
-
-/* CARRINHO */
-
-.cart-top{
-  border:1px solid #56616a;
-
-  background:transparent;
-
-  color:#e4e7e9;
-
-  border-radius:8px;
-
-  padding:11px 15px;
-
-  white-space:nowrap;
-}
-
-.cart-top:hover{
-  background:#151d24;
-}
-
-
-/* =====================================================
-   HERO / CARTAZ
-===================================================== */
-
-.hero{
-
-  min-height:500px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  text-align:center;
-
-  position:relative;
-
-  overflow:hidden;
-
-  border-bottom:1px solid var(--line);
-
-  background-image:
-    linear-gradient(
-      rgba(3,8,14,.12),
-      rgba(3,8,14,.25)
-    ),
-    url("cartaz_casa_masculina.jpg");
-
-  background-position:center;
-  background-size:cover;
-  background-repeat:no-repeat;
-}
-
-
-/*
-   CAMADA ESCURA LEVE
-*/
-
-.hero::after{
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3,8,14,.15),
-      transparent 50%,
-      rgba(3,8,14,.12)
-    );
-
-  pointer-events:none;
-}
-
-
-/* CONTEÚDO */
-
-.hero-content{
-  position:relative;
-
-  z-index:2;
-
-  width:100%;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:60px 20px;
-}
-
-
-/* LOGO DO HERO */
-
-.hero-logo{
-  width:145px;
-
-  height:auto;
-
-  object-fit:contain;
-
-  margin-top:190px;
-
-  margin-bottom:18px;
-
-  filter:grayscale(100%);
-}
-
-
-/* BOTÃO */
-
-.hero-btn{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:12px;
-
-  padding:13px 25px;
-
-  border:1px solid #aeb5ba;
-
-  background:rgba(3,8,14,.35);
-
-  color:white;
-
-  border-radius:6px;
-
-  font-size:11px;
-
-  letter-spacing:2px;
-
-  transition:.25s;
-}
-
-.hero-btn:hover{
-  background:#d0d4d7;
-
-  color:#080b0e;
-}
-
-
-/* =====================================================
-   PRODUTOS
-===================================================== */
-
-.products-section{
-
-  width:min(1250px,92%);
-
-  margin:auto;
-
-  padding:55px 0 45px;
-}
-
-
-.section-title{
-
-  text-align:center;
-
-  margin-bottom:30px;
-}
-
-.section-title h2{
-
-  font-family:Georgia,"Times New Roman",serif;
-
-  font-weight:400;
-
-  font-size:28px;
-
-  letter-spacing:5px;
-}
-
-.section-title h2::before,
-.section-title h2::after{
-
-  content:"";
-
-  display:inline-block;
-
-  width:48px;
-
-  height:1px;
-
-  background:#727b82;
-
-  vertical-align:middle;
-
-  margin:0 20px;
-}
-
-
-/* =====================================================
-   CATEGORIAS
-===================================================== */
-
-.categories{
-
-  display:flex;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  gap:10px;
-
-  margin-bottom:32px;
-}
-
-.category{
-
-  width:82px;
-
-  height:82px;
-
-  border-radius:50%;
-
-  border:1px solid #303941;
-
-  background:#050b11;
-
-  color:#d4d8da;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:6px;
-
-  transition:.2s;
-}
-
-.category:hover{
-
-  border-color:#89939a;
-
-  background:#111920;
-
-  transform:translateY(-2px);
-}
-
-.category.active{
-
-  border-color:#aeb5ba;
-
-  background:#20272d;
-}
-
-
-/* MINI LOGO / TEMPLO */
-
-.category-icon{
-
-  width:29px;
-
-  height:25px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:23px;
-
-  filter:grayscale(1);
-}
-
-.category-name{
-
-  font-family:Georgia,"Times New Roman",serif;
-
-  font-size:10px;
-
-  text-align:center;
-}
-
-
-/* =====================================================
-   GRID PRODUTOS
-===================================================== */
-
-.products{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:18px;
-}
-
-
-/* =====================================================
-   CARD
-===================================================== */
-
-.card{
-
-  background:#061019;
-
-  border:1px solid #27313a;
-
-  border-radius:8px;
-
-  overflow:hidden;
-
-  transition:.25s;
-}
-
-.card:hover{
-
-  transform:translateY(-4px);
-
-  border-color:#707a82;
-}
-
-
-/* IMAGEM */
-
-.product-image{
-
-  width:100%;
-
-  height:285px;
-
-  object-fit:cover;
-
-  display:block;
-
-  background:#101820;
-}
-
-
-/* INFORMAÇÕES */
-
-.product-info{
-
-  padding:16px;
-}
-
-
-/* FONTE DOS NOMES SEPARADA */
-
-.product-name{
-
-  font-family:Arial,Helvetica,sans-serif;
-
-  font-size:17px;
-
-  font-weight:500;
-
-  color:#f1f2f3;
-
-  margin-bottom:7px;
-}
-
-.product-category{
-
-  color:#8f989f;
-
-  font-size:10px;
-
-  letter-spacing:1.5px;
-
-  text-transform:uppercase;
-
-  margin-bottom:7px;
-}
-
-.product-desc{
-
-  color:#9da5ac;
-
-  font-size:12px;
-
-  margin-bottom:14px;
-}
-
-.product-bottom{
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:10px;
-}
-
-.price{
-
-  font-size:17px;
-
-  font-weight:bold;
-
-  color:#e2e5e7;
-}
-
-.buy{
-
-  border:1px solid #5e6870;
-
-  background:#101820;
-
-  color:white;
-
-  padding:9px 13px;
-
-  border-radius:5px;
-
-  font-size:11px;
-}
-
-.buy:hover{
-
-  background:#d0d4d7;
-
-  color:#080b0e;
-}
-
-
-/* =====================================================
-   CARTAZ / FAIXA INFERIOR
-===================================================== */
-
-.banner-bottom{
-
-  width:min(1250px,92%);
-
-  margin:15px auto 50px;
-
-  border:1px solid #39434c;
-
-  border-radius:8px;
-
-  overflow:hidden;
-
-  background:#070d13;
-}
-
-.banner-bottom img{
-
-  width:100%;
-
-  display:block;
-
-  max-height:150px;
-
-  object-fit:cover;
-}
-
-
-/* =====================================================
-   SOBRE
-===================================================== */
-
-.about{
-
-  border-top:1px solid var(--line);
-
-  border-bottom:1px solid var(--line);
-
-  background:#050c12;
-
-  padding:55px 20px;
-
-  text-align:center;
-}
-
-.about h2{
-
-  font-family:Georgia,"Times New Roman",serif;
-
-  font-size:25px;
-
-  font-weight:400;
-
-  letter-spacing:4px;
-
-  margin-bottom:15px;
-}
-
-.about p{
-
-  width:min(700px,92%);
-
-  margin:auto;
-
-  color:#aeb5bb;
-
-  line-height:1.8;
-
-  font-size:13px;
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-  width:min(1200px,92%);
-
-  margin:auto;
-
-  padding:40px 0;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:25px;
-
-  color:#aeb5bb;
-}
-
-.footer-logo{
-
-  width:160px;
-
-  max-height:70px;
-
-  object-fit:contain;
-}
-
-.footer-links{
-
-  display:flex;
-
-  gap:20px;
-
-  font-size:12px;
-}
-
-.whatsapp{
-
-  color:#8fdaa4;
-}
-
-.copyright{
-
-  font-size:10px;
-}
-
-
-/* =====================================================
-   CARRINHO FLUTUANTE
-===================================================== */
-
-.float-cart{
-
-  position:fixed;
-
-  right:20px;
-
-  bottom:20px;
-
-  width:58px;
-
-  height:58px;
-
-  border-radius:50%;
-
-  border:1px solid #8c969e;
-
-  background:#111920;
-
-  color:#e1e4e6;
-
-  font-size:22px;
-
-  z-index:70;
-}
-
-.cart-count{
-
-  position:absolute;
-
-  right:-3px;
-
-  top:-4px;
-
-  width:21px;
-
-  height:21px;
-
-  border-radius:50%;
-
-  background:#c94b47;
-
-  color:white;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:11px;
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-.toast{
-
-  position:fixed;
-
-  left:50%;
-
-  bottom:90px;
-
-  transform:translateX(-50%);
-
-  background:#e5e7e9;
-
-  color:#111;
-
-  padding:12px 18px;
-
-  border-radius:6px;
-
-  display:none;
-
-  z-index:100;
-
-  font-size:12px;
-}
-
-
-/* =====================================================
-   RESPONSIVO
-===================================================== */
-
-@media(max-width:1050px){
-
-  .links{
-    display:none;
-  }
-
-  .logo-area{
-    min-width:auto;
-  }
-
-  .search{
-    margin-left:auto;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-
-@media(max-width:700px){
-
-  .topbar{
-    display:none;
-  }
-
-  .nav{
-
-    min-height:70px;
-
-    padding:8px 12px;
-
-    gap:10px;
-  }
-
-  .logo-symbol{
-
-    width:45px;
-
-    height:45px;
-  }
-
-  .brand-name{
-
-    font-size:19px;
-  }
-
-  .search{
-
-    max-width:none;
-
-    width:45px;
-
-    border:0;
-
-    background:transparent;
-  }
-
-  .search-icon{
-    padding:0;
-  }
-
-  .search input{
-    display:none;
-  }
-
-  .cart-top{
-
-    font-size:0;
-
-    width:43px;
-
-    height:43px;
-
-    padding:0;
-  }
-
-  .cart-top::before{
-    content:"🛒";
-
-    font-size:18px;
-  }
-
-  .hero{
-
-    min-height:500px;
-
-    background-position:center;
-  }
-
-  .hero-logo{
-
-    width:115px;
-
-    margin-top:270px;
-  }
-
-  .products-section{
-
-    padding-top:40px;
-  }
-
-  .section-title h2{
-
-    font-size:21px;
-
-    letter-spacing:3px;
-  }
-
-  .section-title h2::before,
-  .section-title h2::after{
-
-    width:25px;
-
-    margin:0 8px;
-  }
-
-  .categories{
-
-    gap:7px;
-  }
-
-  .category{
-
-    width:70px;
-
-    height:70px;
-  }
-
-  .category-icon{
-
-    font-size:19px;
-  }
-
-  .products{
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:9px;
-  }
-
-  .product-image{
-
-    height:180px;
-  }
-
-  .product-info{
-
-    padding:11px;
-  }
-
-  .product-name{
-
-    font-size:14px;
-  }
-
-  .product-desc{
-
-    font-size:10px;
-  }
-
-  .price{
-
-    font-size:14px;
-  }
-
-  .buy{
-
-    padding:7px 8px;
-
-    font-size:9px;
-  }
-
-  footer{
-
-    flex-direction:column;
-
-    text-align:center;
-
-    padding-bottom:90px;
-  }
-
-  .footer-links{
-
-    justify-content:center;
-  }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================================
-     TOPO
-===================================================== -->
-
-<div class="topbar">
-  CASA MASCULINA • ESTILO, CONFORTO E AUTENTICIDADE
-</div>
-
-
-<!-- =====================================================
-     NAV
-===================================================== -->
-
-<nav class="nav">
-
-  <div class="logo-area">
-
-    <img
-      class="logo-symbol"
-      src="0463b1763f21a424b81d5964ba6599a4.jpg"
-      alt="Casa Masculina"
-    >
-
-    <div class="brand-name">
-      Casa <span>Masculina</span>
-    </div>
-
-  </div>
-
-
-  <!-- PESQUISA FICA SOMENTE AQUI -->
-
-  <div class="search">
-
-    <div class="search-icon">⌕</div>
-
-    <input
-      id="search"
-      type="search"
-      placeholder="Procurar produto..."
-      oninput="filterProducts()"
-    >
-
-  </div>
-
-
-  <div class="links">
-
-    <a href="#inicio">Início</a>
-
-    <a href="#produtos">Produtos</a>
-
-    <a href="#sobre">Sobre</a>
-
-    <a href="#contato">Contato</a>
-
-  </div>
-
-
-  <button
-    class="cart-top"
-    onclick="showCart()"
-  >
-    🛒 Carrinho (<span id="topCart">0</span>)
-  </button>
-
-</nav>
-
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section
-  class="hero"
-  id="inicio"
->
-
-  <div class="hero-content">
-
-    <!-- LOGO ABAIXO DA ÁREA DO CARTAZ -->
-
-    <img
-      class="hero-logo"
-      src="0463b1763f21a424b81d5964ba6599a4.jpg"
-      alt="Casa Masculina"
-    >
-
-    <button
-      class="hero-btn"
-      onclick="document.getElementById('produtos').scrollIntoView()"
-    >
-      VER PRODUTOS →
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PRODUTOS
-===================================================== -->
-
-<section
-  class="products-section"
-  id="produtos"
->
-
-  <div class="section-title">
-
-    <h2>
-      NOSSOS PRODUTOS
-    </h2>
-
-  </div>
-
-
-  <!-- CATEGORIAS -->
-
-  <div
-    class="categories"
-    id="categories"
-  ></div>
-
-
-  <!-- PRODUTOS -->
-
-  <div
-    class="products"
-    id="productGrid"
-  ></div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FAIXA INFERIOR
-===================================================== -->
-
-<div class="banner-bottom">
-
-  <img
-    src="cartaz_casa_masculina.jpg"
-    alt="Casa Masculina"
-  >
-
-</div>
-
-
-
-<!-- =====================================================
-     SOBRE
-===================================================== -->
-
-<section
-  class="about"
-  id="sobre"
->
-
-  <h2>
-    CASA MASCULINA
-  </h2>
-
-  <p>
-    Na Casa Masculina, você encontra peças selecionadas
-    para o homem moderno, que valoriza qualidade,
-    conforto e autenticidade.
-  </p>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer id="contato">
-
-  <img
-    class="footer-logo"
-    src="casa_masculina_logo.png"
-    alt="Casa Masculina"
-  >
-
-  <div class="footer-links">
-
-    <a
-      class="whatsapp"
-      href="https://wa.me/5585988485980"
-      target="_blank"
-    >
-      WhatsApp
-    </a>
-
-    <a
-      href="https://instagram.com/casamasculiina"
-      target="_blank"
-    >
-      Instagram
-    </a>
-
-  </div>
-
-  <div class="copyright">
-
-    © 2025 Casa Masculina. Todos os direitos reservados.
-
-  </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     CARRINHO
-===================================================== -->
-
-<button
-  class="float-cart"
-  onclick="showCart()"
->
-
-  🛒
-
-  <span
-    class="cart-count"
-    id="floatCart"
-  >
-    0
-  </span>
-
-</button>
-
-
-<div
-  class="toast"
-  id="toast"
-></div>
-
-
-
-<script>
-
-/* =====================================================
-   PRODUTOS
-===================================================== */
-
-const products = [
-
-  {
-    name:"Short Tactel Mr2",
-    category:"Shorts",
-    desc:"Conforto & Estilo",
-    price:29.99,
-    image:"IMG-20260928-WA0002.jpg"
-  },
-
-  {
-    name:"Short Linho Mr2",
-    category:"Shorts",
-    desc:"Conforto & Estilo",
-    price:34.99,
-    image:"IMG-20260928-WA0009.jpg"
-  },
-
-  {
-    name:"Short Nike Jordam preto",
-    category:"Shorts",
-    desc:"100% Algodão",
-    price:69.99,
-    image:"1ea30dd69c55a61e9c79ae5619e90ae0.jpg"
-  },
-
-  {
-    name:"Short HipHop Rosa",
-    category:"Shorts",
-    desc:"100% Algodão",
-    price:69.99,
-    image:"ade6ab86c510c2a797f7df603a94727b.jpg"
-  },
-
-  {
-    name:"Camisa Lacoste laranja",
-    category:"Camisetas",
-    desc:"100% Algodão",
-    price:59.99,
-    image:"a1191bbca3554a86b6d37c66c9c79a85.jpg"
-  },
-
-  {
-    name:"Camisa Lacoste Azul",
-    category:"Camisetas",
-    desc:"100% Algodão",
-    price:59.99,
-    image:"35475abc24772d333ee1e5c0dec8d1ff.jpg"
-  },
-
-  {
-    name:"Mochila HipHop Branca",
-    category:"Mochilas",
-    desc:"100% Qualidade",
-    price:99.99,
-    image:"efa329b65007790f03872b6b567bbc19.jpg"
-  },
-
-  {
-    name:"Perfume Malbec",
-    category:"Fragancias",
-    desc:"100% Original",
-    price:189.99,
-    image:"e26604ce2e07176fabb509ce2caca4eb.jpg"
-  },
-
-  {
-    name:"Polo Mr2",
-    category:"Polos",
-    desc:"Algodão 100%",
-    price:129.99,
-    image:""
-  },
-
-  {
-    name:"Moletom NIKE vermelho",
-    category:"Moletons",
-    desc:"Capuz e Bolso Canguru",
-    price:119.99,
-    image:"fd42b0194f1363b63724e7b5a7b6f7f8.jpg"
-  },
-
-  {
-    name:"Calça Jeans",
-    category:"Calças",
-    desc:"Conforto e Elegância",
-    price:104.99,
-    image:"c608d0ce97b27e445391cdf45b778e9f.jpg"
-  },
-
-  {
-    name:"Tênis HipHop Branco",
-    category:"Tênis",
-    desc:"Estilo e Versatilidade",
-    price:114.99,
-    image:"b396fe3895e656e4809a301b2e5336b0.jpg"
-  },
-
-  {
-    name:"Boné Casual",
-    category:"Acessórios",
-    desc:"Ajuste Perfeito",
-    price:59.90,
-    image:"aac760a5d958397c3a3f4857e812e135.jpg"
-  },
-
-  {
-    name:"Bone Lacoste",
-    category:"Acessórios",
-    desc:"Conforto & Estilo",
-    price:59.99,
-    image:"f3a8c2107aff17aab4cbfd9f6007e833.jpg"
-  },
-
-  {
-    name:"Relógio Casual",
-    category:"Acessórios",
-    desc:"Estilo e qualidade",
-    price:114.99,
-    image:""
-  },
-
-  {
-    name:"Cordao Cravejado Jesus Cristo",
-    category:"Cordão",
-    desc:"Estilo e conforto",
-    price:119.99,
-    image:"4f8e444a29496016b809958b62b5326d.jpg"
-  },
-
-  {
-    name:"Juliete",
-    category:"Oculos",
-    desc:"Estilo e conforto",
-    price:69.99,
-    image:"809673b10df4e620f83974be8018adba.jpg"
-  },
-
-  {
-    name:"Juliete",
-    category:"Oculos",
-    desc:"Estilo e conforto",
-    price:69.99,
-    image:"bab26070dbdf71c52894ee54b4578e4d.jpg"
-  }
-
-];
-
-
-/* =====================================================
-   CATEGORIAS
-===================================================== */
-
-const categories = [
-
-  "Todos",
-  "Shorts",
-  "Camisetas",
-  "Mochilas",
-  "Fragancias",
-  "Polos",
-  "Moletons",
-  "Calças",
-  "Tênis",
-  "Acessórios",
-  "Cordão",
-  "Oculos"
-
-];
-
-let selectedCategory = "Todos";
-
-let cart = 0;
-
-
-/* =====================================================
-   DINHEIRO
-===================================================== */
-
-function money(value){
-
-  return Number(value).toLocaleString(
-    "pt-BR",
-    {
-      style:"currency",
-      currency:"BRL"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   CATEGORIAS
-===================================================== */
-
-function renderCategories(){
-  const box =
-    document.getElementById("categories");
-  box.innerHTML = "";
-  categories.forEach(category => {
-    const button =
-      document.createElement("button");
-    button.className =
-      "category " +
-      (
-        category === selectedCategory
-        ? "active"
-        : ""
-      );
-    button.innerHTML = `
-      <div class="category-icon">
-        🏛
-      </div>
-      <div class="category-name">
-        ${category}
-      </div>
-    `;
-    button.onclick = () => {
-      selectedCategory = category;
-      renderCategories();
-      renderProducts();
-    };
-    box.appendChild(button);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Casa Masculina 🏛️ | Since 2025</title>
+
+    <meta name="description" content="Casa Masculina — roupas, acessórios, perfumes e estilo masculino.">
+    <meta name="theme-color" content="#080b0e">
+
+    <style>
+        :root{
+            --bg:#050709;
+            --bg2:#090d11;
+            --panel:#0c1116;
+            --panel2:#11171c;
+            --line:#30373d;
+
+            /* Cinza escuro inspirado em templo grego */
+            --accent:#737a80;
+            --accent-light:#aeb4b8;
+            --accent-dark:#444a4f;
+
+            --text:#f4f4f2;
+            --muted:#9da4aa;
+
+            --green:#25d366;
+
+            --radius:18px;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:var(--bg);
+            color:var(--text);
+            font-family:Arial, Helvetica, sans-serif;
+            line-height:1.5;
+        }
+
+        button,
+        input{
+            font:inherit;
+        }
+
+        button{
+            cursor:pointer;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header{
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background:rgba(5,7,9,.96);
+            border-bottom:1px solid var(--line);
+            backdrop-filter:blur(14px);
+        }
+
+        .nav{
+            max-width:1250px;
+            margin:auto;
+            min-height:78px;
+            padding:12px 20px;
+            display:flex;
+            align-items:center;
+            gap:22px;
+        }
+
+        .brand{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            min-width:max-content;
+        }
+
+        .brand img{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            object-fit:cover;
+            border:1px solid var(--accent);
+            background:#111;
+        }
+
+        .brand-name{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:22px;
+            letter-spacing:1px;
+            white-space:nowrap;
+        }
+
+        .brand-since{
+            display:block;
+            color:var(--muted);
+            font-family:Arial, sans-serif;
+            font-size:10px;
+            letter-spacing:3px;
+            margin-top:-3px;
+        }
+
+        .search-top{
+            flex:1;
+            max-width:560px;
+            margin:auto;
+            position:relative;
+        }
+
+        .search-top input{
+            width:100%;
+            height:44px;
+            padding:0 48px 0 18px;
+            border-radius:24px;
+            border:1px solid var(--line);
+            outline:none;
+            background:#0c1115;
+            color:var(--text);
+        }
+
+        .search-top input:focus{
+            border-color:var(--accent);
+        }
+
+        .search-icon{
+            position:absolute;
+            right:17px;
+            top:50%;
+            transform:translateY(-50%);
+            color:var(--muted);
+        }
+
+        .nav-actions{
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+
+        .icon-btn{
+            width:44px;
+            height:44px;
+            border-radius:50%;
+            border:1px solid var(--line);
+            background:#0c1115;
+            color:var(--text);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+            transition:.2s;
+        }
+
+        .icon-btn:hover{
+            border-color:var(--accent-light);
+            background:#151b20;
+        }
+
+        .cart-count{
+            position:absolute;
+            right:-3px;
+            top:-5px;
+            min-width:19px;
+            height:19px;
+            padding:0 5px;
+            border-radius:20px;
+            background:var(--accent-light);
+            color:#090b0d;
+            font-size:11px;
+            font-weight:bold;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .quick-links{
+            max-width:1250px;
+            margin:auto;
+            padding:0 20px 12px;
+            display:flex;
+            justify-content:center;
+            gap:25px;
+            flex-wrap:wrap;
+        }
+
+        .quick-links a{
+            color:var(--muted);
+            font-size:13px;
+            transition:.2s;
+        }
+
+        .quick-links a:hover{
+            color:white;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero{
+            min-height:650px;
+            position:relative;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            overflow:hidden;
+
+            background-image:
+                linear-gradient(
+                    rgba(3,5,7,.45),
+                    rgba(3,5,7,.78)
+                ),
+                url("cartaz_casa_masculina.jpg");
+
+            background-size:cover;
+            background-position:center;
+        }
+
+        .hero::after{
+            content:"";
+            position:absolute;
+            inset:0;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.50),
+                    transparent 50%,
+                    rgba(0,0,0,.45)
+                );
+            pointer-events:none;
+        }
+
+        .hero-content{
+            position:relative;
+            z-index:2;
+            max-width:850px;
+            padding:70px 20px;
+        }
+
+        .hero-small{
+            font-size:12px;
+            letter-spacing:5px;
+            text-transform:uppercase;
+            color:#ddd;
+            margin-bottom:14px;
+        }
+
+        .hero h1{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:clamp(42px,7vw,82px);
+            line-height:1;
+            letter-spacing:2px;
+            text-shadow:0 4px 25px #000;
+            margin-bottom:18px;
+        }
+
+        .hero p{
+            max-width:620px;
+            margin:0 auto 28px;
+            color:#eee;
+            font-size:17px;
+            text-shadow:0 2px 8px #000;
+        }
+
+        .hero-button{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            border:1px solid #d0d4d7;
+            background:#111518;
+            color:white;
+            padding:14px 28px;
+            border-radius:30px;
+            font-weight:bold;
+            letter-spacing:1px;
+            transition:.25s;
+        }
+
+        .hero-button:hover{
+            background:#e5e7e8;
+            color:#080a0c;
+        }
+
+        .hero-logo{
+            margin:28px auto 0;
+            width:105px;
+            height:105px;
+            padding:8px;
+            border-radius:50%;
+            background:rgba(5,7,9,.72);
+            border:1px solid rgba(220,220,220,.55);
+            box-shadow:0 8px 30px rgba(0,0,0,.5);
+        }
+
+        .hero-logo img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:50%;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section{
+            max-width:1250px;
+            margin:auto;
+            padding:70px 20px;
+        }
+
+        .section-header{
+            text-align:center;
+            margin-bottom:35px;
+        }
+
+        .section-kicker{
+            color:var(--accent-light);
+            font-size:11px;
+            letter-spacing:4px;
+            text-transform:uppercase;
+            margin-bottom:8px;
+        }
+
+        .section-title{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:38px;
+            letter-spacing:.5px;
+        }
+
+        /* =========================
+           CATEGORIAS
+        ========================= */
+
+        .categories{
+            display:flex;
+            gap:18px;
+            overflow-x:auto;
+            padding:5px 3px 18px;
+            scrollbar-width:thin;
+            scrollbar-color:var(--accent-dark) transparent;
+        }
+
+        .category{
+            flex:0 0 88px;
+            border:0;
+            background:transparent;
+            color:var(--text);
+            text-align:center;
+        }
+
+        .category-icon{
+            width:70px;
+            height:70px;
+            margin:0 auto 9px;
+            border-radius:50%;
+            border:1px solid var(--line);
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #30373c,
+                    #101419 65%
+                );
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            transition:.2s;
+        }
+
+        .category-icon img{
+            width:48px;
+            height:48px;
+            object-fit:cover;
+            border-radius:50%;
+            opacity:.92;
+        }
+
+        .category-icon span{
+            font-size:27px;
+            filter:grayscale(1);
+        }
+
+        .category:hover .category-icon,
+        .category.active .category-icon{
+            border-color:var(--accent-light);
+            transform:translateY(-3px);
+            box-shadow:0 7px 22px rgba(0,0,0,.4);
+        }
+
+        .category-name{
+            font-size:12px;
+            color:var(--muted);
+            white-space:nowrap;
+        }
+
+        .category.active .category-name{
+            color:white;
+            font-weight:bold;
+        }
+
+        /* =========================
+           PRODUTOS
+        ========================= */
+
+        .products-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:24px;
+        }
+
+        .product{
+            background:var(--panel);
+            border:1px solid var(--line);
+            border-radius:var(--radius);
+            overflow:hidden;
+            transition:.25s;
+        }
+
+        .product:hover{
+            transform:translateY(-4px);
+            border-color:#60676d;
+            box-shadow:0 15px 35px rgba(0,0,0,.25);
+        }
+
+        .product-image{
+            height:330px;
+            background:#11161a;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .product-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:.35s;
+        }
+
+        .product:hover .product-image img{
+            transform:scale(1.035);
+        }
+
+        .image-placeholder{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#656c72;
+            font-size:55px;
+            background:
+                radial-gradient(
+                    circle,
+                    #20262b,
+                    #0d1115
+                );
+        }
+
+        .product-category{
+            position:absolute;
+            top:12px;
+            left:12px;
+            padding:6px 10px;
+            border-radius:20px;
+            background:rgba(5,7,9,.8);
+            border:1px solid rgba(255,255,255,.18);
+            font-size:10px;
+            color:#ddd;
+        }
+
+        .product-info{
+            padding:19px;
+        }
+
+        .product-name{
+            font-family:"Trebuchet MS", Arial, sans-serif;
+            font-size:18px;
+            font-weight:700;
+            margin-bottom:6px;
+        }
+
+        .product-description{
+            color:var(--muted);
+            font-size:13px;
+            min-height:40px;
+        }
+
+        .product-bottom{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:10px;
+            margin-top:16px;
+        }
+
+        .price{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:21px;
+            font-weight:bold;
+        }
+
+        .add-btn{
+            border:1px solid var(--accent);
+            background:#1b2024;
+            color:white;
+            border-radius:24px;
+            padding:9px 15px;
+            font-size:12px;
+            font-weight:bold;
+            transition:.2s;
+        }
+
+        .add-btn:hover{
+            background:#e0e2e3;
+            color:#080a0c;
+        }
+
+        .empty-products{
+            grid-column:1/-1;
+            padding:60px;
+            text-align:center;
+            color:var(--muted);
+        }
+
+        /* =========================
+           BANNER
+        ========================= */
+
+        .quality-banner{
+            max-width:1250px;
+            margin:0 auto 70px;
+            padding:55px 25px;
+            border-top:1px solid var(--line);
+            border-bottom:1px solid var(--line);
+            text-align:center;
+            background:
+                radial-gradient(
+                    circle at center,
+                    #1a2025,
+                    #090c0f 65%
+                );
+        }
+
+        .quality-banner h2{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:35px;
+            margin-bottom:10px;
+        }
+
+        .quality-banner p{
+            max-width:650px;
+            margin:auto;
+            color:var(--muted);
+        }
+
+        /* =========================
+           SOBRE / CONTATO
+        ========================= */
+
+        .info-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:25px;
+        }
+
+        .info-card{
+            padding:30px;
+            background:var(--panel);
+            border:1px solid var(--line);
+            border-radius:var(--radius);
+        }
+
+        .info-card h3{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:25px;
+            margin-bottom:12px;
+        }
+
+        .info-card p{
+            color:var(--muted);
+            font-size:14px;
+        }
+
+        .contact-list{
+            margin-top:20px;
+            display:grid;
+            gap:12px;
+        }
+
+        .contact-item{
+            padding:13px 15px;
+            border-radius:12px;
+            background:#11161a;
+            border:1px solid var(--line);
+            color:#ddd;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer{
+            border-top:1px solid var(--line);
+            background:#030506;
+        }
+
+        .footer{
+            max-width:1250px;
+            margin:auto;
+            padding:50px 20px 25px;
+            display:grid;
+            grid-template-columns:1.4fr 1fr 1fr;
+            gap:35px;
+        }
+
+        .footer-brand img{
+            width:75px;
+            height:75px;
+            object-fit:cover;
+            border-radius:50%;
+            margin-bottom:15px;
+            border:1px solid var(--line);
+        }
+
+        .footer-brand h3{
+            font-family:Georgia, "Times New Roman", serif;
+            font-size:25px;
+            margin-bottom:7px;
+        }
+
+        .footer p,
+        .footer a{
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .footer-column h4{
+            margin-bottom:15px;
+            font-size:14px;
+            text-transform:uppercase;
+            letter-spacing:2px;
+        }
+
+        .footer-column{
+            display:flex;
+            flex-direction:column;
+            gap:9px;
+        }
+
+        .copyright{
+            max-width:1250px;
+            margin:auto;
+            padding:20px;
+            border-top:1px solid #171c20;
+            text-align:center;
+            color:#6f767b;
+            font-size:11px;
+        }
+
+        /* =========================
+           CARRINHO
+        ========================= */
+
+        .cart-overlay{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,.72);
+            z-index:2000;
+            opacity:0;
+            pointer-events:none;
+            transition:.25s;
+        }
+
+        .cart-overlay.open{
+            opacity:1;
+            pointer-events:auto;
+        }
+
+        .cart-panel{
+            position:absolute;
+            right:0;
+            top:0;
+            width:min(440px,100%);
+            height:100%;
+            background:#090d10;
+            border-left:1px solid var(--line);
+            transform:translateX(100%);
+            transition:.3s;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .cart-overlay.open .cart-panel{
+            transform:translateX(0);
+        }
+
+        .cart-header{
+            padding:20px;
+            border-bottom:1px solid var(--line);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+
+        .cart-header h2{
+            font-family:Georgia, "Times New Roman", serif;
+        }
+
+        .close-cart{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            border:1px solid var(--line);
+            background:#11161a;
+            color:white;
+        }
+
+        .cart-items{
+            flex:1;
+            overflow:auto;
+            padding:20px;
+        }
+
+        .cart-item{
+            display:grid;
+            grid-template-columns:65px 1fr auto;
+            gap:12px;
+            align-items:center;
+            padding:12px 0;
+            border-bottom:1px solid #1b2024;
+        }
+
+        .cart-item-image{
+            width:65px;
+            height:65px;
+            border-radius:10px;
+            object-fit:cover;
+            background:#161b20;
+        }
+
+        .cart-item h4{
+            font-size:14px;
+        }
+
+        .cart-item small{
+            color:var(--muted);
+            font-size:12px;
+        }
+
+        .cart-item-price{
+            font-weight:bold;
+            font-size:13px;
+        }
+
+        .cart-footer{
+            padding:20px;
+            border-top:1px solid var(--line);
+        }
+
+        .cart-total{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            font-size:19px;
+            margin-bottom:15px;
+        }
+
+        .whatsapp-btn{
+            width:100%;
+            border:0;
+            border-radius:13px;
+            background:var(--green);
+            color:#071008;
+            padding:14px;
+            font-weight:bold;
+            transition:.2s;
+        }
+
+        .whatsapp-btn:hover{
+            filter:brightness(1.08);
+        }
+
+        .clear-cart{
+            width:100%;
+            margin-top:9px;
+            border:1px solid var(--line);
+            border-radius:13px;
+            background:transparent;
+            color:var(--muted);
+            padding:11px;
+        }
+
+        .cart-empty{
+            text-align:center;
+            color:var(--muted);
+            padding:60px 20px;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast{
+            position:fixed;
+            left:50%;
+            bottom:25px;
+            transform:translate(-50%,20px);
+            background:#e7e9ea;
+            color:#080a0c;
+            padding:12px 18px;
+            border-radius:30px;
+            font-size:13px;
+            font-weight:bold;
+            z-index:3000;
+            opacity:0;
+            pointer-events:none;
+            transition:.25s;
+        }
+
+        .toast.show{
+            opacity:1;
+            transform:translate(-50%,0);
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= 
