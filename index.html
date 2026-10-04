@@ -142,12 +142,18 @@ const products=[
 [14,"Boné Lacoste","Conforto & Estilo",59.99,"Acessórios","f3a8c2107aff17aab4cbfd9f6007e833.jpg"],
 [15,"Relógio Casual","Estilo e qualidade",114.99,"Acessórios",""],
 [16,"Cordão Cravejado Jesus Cristo","Estilo e conforto",119.99,"Cordão","4f8e444a29496016b809958b62b5326d.jpg"],
-[17,"Juliete","Estilo e conforto",69.99,"Óculos","809673b10df4e620f83974be8018adba.jpg"],
+[17,"Juliete","Estilo e conforto",69.99,"Óculos","juliete.jpg"],
 [18,"Juliete","Estilo e conforto",69.99,"Óculos","bab26070dbdf71c52894ee54b4578e4d.jpg"],
 [19,"Perfume Zaad Tradicional","aroma suave & refrescancia",228.99,"Fragrâncias","perfume_zaad.jpg"],
+[20,"Kit Cueca Lacoste","conforto & estilo",89.99,"Cuecas","Kit_cueca_lacoste.jpg"],
+[21,"Chinela Slide Lacoste","conforto & estilo",114.99,"Chinelas","chinelo_slide_lacoste.jpg"],
+[22,"Chinela Slide Nike","conforto & estilo",114.99,"Chinelas","chinelo_slide_nike.jpg"],
+    
+    
+    
 ];
 
-const cats=["Todos","Shorts","Camisetas","Mochilas","Fragrâncias","Polos","Moletons","Calças","Tênis","Acessórios","Cordão","Óculos"];
+const cats=["Todos","Shorts","Camisetas","Mochilas","Fragrâncias","Polos","Moletons","Calças","Tênis","Acessórios","Cordão","Óculos","Chinelas","Cuecas"];
 let selected="Todos",cart=JSON.parse(localStorage.getItem("cmCart")||"[]");
 
 const money=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
