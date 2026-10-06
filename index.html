@@ -166,7 +166,7 @@ const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 function renderCats(){
 document.getElementById("cats").innerHTML=cats.map(c=>`
 <button class="cat ${selected===c?"active":""}" onclick="filterCat('${c}')">
-<i><img src="0463b1763f21a424b81d5964ba6599a4.jpg"></i>${c}</button>`).join("");
+<i><img src="📤"></i>${c}</button>`).join("");
 }
 
 function filterCat(c){selected=c;renderCats();renderProducts();}
