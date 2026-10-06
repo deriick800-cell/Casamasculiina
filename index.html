@@ -54,6 +54,33 @@ footer{border-top:1px solid #292f34;background:#030506;padding:35px 15px;text-al
 .toast{position:fixed;z-index:30;bottom:20px;left:50%;transform:translateX(-50%);background:#eee;color:#000;padding:10px 17px;border-radius:20px;display:none;font-size:12px}.toast.show{display:block}
 @media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.logo{min-width:auto}.logo b{font-size:16px}.infoGrid{grid-template-columns:1fr}}
 @media(max-width:550px){.nav{flex-wrap:wrap}.logo{flex:1}.search{order:3;flex-basis:100%}.links{display:none}.products{gap:10px}.pic{height:230px}.info{padding:11px}.info h3{font-size:14px}.price{font-size:16px}.add{padding:7px 9px}}
+    .gif-logo{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:75px;
+    height:75px;
+    z-index:50;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid #777;
+    background:#050709;
+    box-shadow:0 5px 25px #000;
+}
+.gif-logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+@media(max-width:550px){
+    .gif-logo{
+        width:60px;
+        height:60px;
+        right:12px;
+        bottom:12px;
+    }
+}
 </style>
 </head>
 
@@ -167,7 +194,7 @@ let total=0,html="";
 cart.forEach(i=>{
 let p=products.find(x=>x[0]===i.id);if(!p)return;
 let sub=p[3]*i.q;total+=sub;
-html+=`<div class="item"><img src="${p[5]||"0463b1763f21a424b81d5964ba6599a4.jpg"}"><div><b>${p[1]}</b><small>${i.q} × ${money(p[3])}</small></div><strong>${money(sub)}</strong></div>`;
+html+=`<div class="item"><img src="${p[5]||"📤"}"><div><b>${p[1]}</b><small>${i.q} × ${money(p[3])}</small></div><strong>${money(sub)}</strong></div>`;
 });
 document.getElementById("cartList").innerHTML=html||"<div style='text-align:center;color:#888;padding:50px'>Seu carrinho está vazio.</div>";
 document.getElementById("total").textContent=money(total);
@@ -193,6 +220,9 @@ setTimeout(()=>x.classList.remove("show"),2000);
 
 document.getElementById("search").addEventListener("input",renderProducts);
 renderCats();renderProducts();save();
+    <div class="gif-logo">
+    <img src="logo.gif" alt="Casa Masculina">
+</div>
 </script>
 
 </body>
