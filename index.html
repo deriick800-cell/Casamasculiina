@@ -212,15 +212,7 @@ cart.forEach(i=>{let p=products.find(x=>x[0]===i.id);if(!p)return;let s=p[3]*i.q
 msg+=`%0ATotal: ${money(total)}%0A%0AGostaria de finalizar meu pedido.`;
 window.open("https://wa.me/5585988485980?text="+encodeURIComponent(decodeURIComponent(msg)),"_blank");
 }
-
-function show(t){
-let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");
-setTimeout(()=>x.classList.remove("show"),2000);
-}
-
-document.getElementById("search").addEventListener("input",renderProducts);
-renderCats();renderProducts();save();
-    <div class="gif-logo">
+<div class="gif-logo">
     <img src="logo.gif" alt="Casa Masculina">
 </div>
 </script>
